@@ -3,165 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moral Evolution via Agent Simulation</title>
-    
+    <title>Investigating Moral Evolution via LLM-based Agent Simulation — ACL 2026</title>
+    <meta name="description" content="An LLM-based agent simulation framework for studying how morality evolves in prehistoric hunter-gatherer societies. ACL 2026 Main Conference.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
-        
-        <div class="glass-container hero-content">
-            <div class="venue-badge">Accepted at ACL 2026 Main Conference</div>
-            <h1 class="title">Investigating Moral Evolution via<br><span class="gradient-text">LLM-based Agent Simulation</span></h1>
-            
-            <div class="authors">
-                <a href="#" class="author">Ziheng Zhou*</a>
-                <a href="#" class="author">Huacong Tang*</a>
-                <a href="#" class="author">Mingjie Bi*</a>
-                <a href="#" class="author">Yipeng Kang</a>
-                <a href="#" class="author">Wanying He</a><br>
-                <a href="#" class="author">Fang Sun</a>
-                <a href="#" class="author">Yizhou Sun</a>
-                <a href="#" class="author">Ying Nian Wu</a>
-                <a href="#" class="author">Demetri Terzopoulos</a>
-                <a href="#" class="author principal">Fangwei Zhong</a>
-            </div>
-            
-            <div class="affiliations">
-                University of California, Los Angeles &nbsp; | &nbsp; BIGAI &nbsp; | &nbsp; Beijing Normal University
+
+        <div class="hero-wrap">
+            <div class="hero-text">
+                <div class="venue-badge">Accepted · ACL 2026 Main Conference · Oral</div>
+                <h1 class="title">Investigating Moral Evolution via<br><span class="gradient-text">LLM-based Agent Simulation</span></h1>
+
+                <div class="authors">
+                    <a href="#" class="author">Ziheng Zhou*</a>
+                    <a href="#" class="author">Huacong Tang*</a>
+                    <a href="#" class="author">Mingjie Bi*</a>
+                    <a href="#" class="author">Yipeng Kang</a>
+                    <a href="#" class="author">Wanying He</a>
+                    <a href="#" class="author">Fang Sun</a>
+                    <a href="#" class="author">Yizhou Sun</a>
+                    <a href="#" class="author">Ying Nian Wu</a>
+                    <a href="#" class="author">Demetri Terzopoulos</a>
+                    <a href="#" class="author principal">Fangwei Zhong</a>
+                </div>
+
+                <div class="affiliations">
+                    UCLA &nbsp;·&nbsp; BIGAI &nbsp;·&nbsp; Beijing Normal University
+                </div>
+
+                <div class="actions">
+                    <a href="#paper" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+                    <a href="https://github.com/MoralAgentSim/Simulation-Engine" class="btn btn-secondary" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="https://openreview.net/forum?id=jjvwT6ZCeP" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-comments"></i> OpenReview</a>
+                </div>
             </div>
 
-            <div class="actions">
-                <a href="#paper" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Read Paper</a>
-                <a href="https://github.com/MoralAgentSim/Simulation-Engine" class="btn btn-secondary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <div class="hero-art">
+                <img src="public/assets/hero_expanding_circles.png" alt="Expanding circles of moral concern: Self, Kin, Reciprocal Group, Universal Group">
+                <div class="hero-art-caption">Expanding circles of moral concern — from self, to kin, to reciprocal group, to universal.</div>
             </div>
         </div>
     </section>
 
-    <!-- Abstract Section -->
+    <!-- The Puzzle -->
+    <section class="section puzzle-section reveal">
+        <div class="container">
+            <div class="pull-quote">
+                <p>&ldquo;Natural selection should favor pure self-interest. Yet humans developed moral systems that promote broad cooperation.&rdquo;</p>
+                <span class="pull-quote-attrib">— The puzzle of moral evolution</span>
+            </div>
+
+            <div class="grid-3 puzzle-stats">
+                <div class="stat-card">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Moral dispositions, from selfish to universal</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">&gt;0.86</div>
+                    <div class="stat-label">Moral-type recoverability from behavior alone</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">4×</div>
+                    <div class="stat-label">Environments probed — baseline, scarcity, friction, opacity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
     <section class="section abstract-section reveal" id="abstract">
         <div class="container">
             <h2 class="section-title">Abstract</h2>
             <div class="glass-card abstract-card">
                 <p>
-                    The evolution of morality presents a profound puzzle: natural selection should favor pure self-interest, yet humans developed complex moral systems promoting broad cooperation. We introduce a novel LLM-based agent simulation framework modeling prehistoric hunter-gatherer societies. By endowing agents with varying moral dispositions based on the philosophical <em>"expanding circles of concern,"</em> we demonstrate how morality interacts with environmental pressures and cognitive constraints to dictate evolutionary outcomes.
+                    The evolution of morality is a puzzle: natural selection should favor self-interest, yet humans developed moral systems that promote cooperation. We introduce an LLM-based agent simulation that models prehistoric hunter-gatherer societies, endowing agents with moral dispositions drawn from the philosophical <em>expanding circles of concern</em> — self, kin, reciprocal group, and universal group.
                 </p>
                 <p>
-                    Our simulations reveal the crucial role of ecological carrying capacity, social friction costs, and reputation observability in determining whether Selfish, Kin-focused, Reciprocal, or Universal moral groups achieve societal dominance.
+                    Our simulations reveal the critical roles of <strong>ecological carrying capacity</strong>, <strong>social friction cost</strong>, and <strong>moral-type observability</strong> in determining which moral orientation achieves societal dominance. The same set of moral agents produces different evolutionary winners depending on which cognitive and environmental factors dominate.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Expanding Circles & Moral Types -->
+    <!-- Expanding Circles -->
     <section class="section mechanics-section reveal" id="mechanics">
         <div class="container">
-            <h2 class="section-title">The Expanding Circles of Morality</h2>
-            <p class="section-subtitle">Categorizing agents based on the radii of their moral obligations.</p>
-            
+            <h2 class="section-title">The Four Moral Types</h2>
+            <p class="section-subtitle">Agents differ only in the radius of their moral concern. Everything else — cognition, perception, environment — is identical.</p>
+
             <div class="grid-4">
                 <div class="moral-card type-selfish">
+                    <div class="card-ring ring-selfish"></div>
                     <div class="card-icon"><i class="fa-solid fa-user"></i></div>
-                    <h3>Self-Focused</h3>
-                    <p>Cares exclusively about personal survival and reproduction. Views others instrumentally.</p>
-                    <div class="dominates">Dominates in: High Social Cost</div>
+                    <h3>Self-focused</h3>
+                    <p>Cares only about personal survival. Reproduces (r-selection) but invests no further in offspring. Every other agent is instrumental.</p>
+                    <div class="dominates">— survives: social friction —</div>
                 </div>
                 <div class="moral-card type-kin">
+                    <div class="card-ring ring-kin"></div>
                     <div class="card-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3>Kin-Focused</h3>
-                    <p>Extends moral concern strictly to genetic relatives, prioritizing family networks above all.</p>
-                    <div class="dominates">Dominates in: Easy Baseline</div>
+                    <h3>Kin-focused</h3>
+                    <p>Extends moral concern to genetic relatives. Shares food and defends family; treats non-kin as outsiders. Inexpensive trust via kinship.</p>
+                    <div class="dominates">— dominates: baseline / opacity —</div>
                 </div>
                 <div class="moral-card type-reciprocal">
+                    <div class="card-ring ring-reciprocal"></div>
                     <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <h3>Reciprocal Group</h3>
-                    <p>Protects and provisions anyone who empirically reciprocates, forming trust-based clusters.</p>
-                    <div class="dominates">Dominates in: Resource Scarcity</div>
+                    <h3>Reciprocal group</h3>
+                    <p>Cares for anyone who empirically reciprocates. Builds trust-based clusters that span families; excludes free-riders.</p>
+                    <div class="dominates">— dominates: scarcity —</div>
                 </div>
                 <div class="moral-card type-universal">
+                    <div class="card-ring ring-universal"></div>
                     <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
-                    <h3>Universal Group</h3>
-                    <p>Displays indiscriminate prosocial behavior to all agents regardless of their orientation.</p>
-                    <div class="dominates">Extinct in most scenarios (Exploited)</div>
+                    <h3>Universal group</h3>
+                    <p>Extends prosocial behavior to everyone, unconditionally. Broad but exploitable — thrives only when reciprocity machinery is too expensive to run.</p>
+                    <div class="dominates">— dominates: high friction —</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Visual Results Carousel -->
-    <section class="section results-section reveal" id="results">
+    <!-- Framework -->
+    <section class="section framework-section reveal" id="framework">
         <div class="container">
-            <h2 class="section-title">Simulation Dynamics</h2>
-            <p class="section-subtitle">Emergent societal patterns operating without human intervention.</p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="public/assets/the_method.png" alt="Simulation Pipeline">
-                    <div class="gallery-caption">Fig 1. Model Architecture & Pipeline</div>
+            <h2 class="section-title">The Framework</h2>
+            <p class="section-subtitle">A morality-driven cognitive architecture (<code>SoMa</code>) embedded in a hunter-gatherer world (<code>Social-Evol-HunT</code>).</p>
+
+            <figure class="figure-card">
+                <img src="public/assets/the_method@2x.png" alt="SoMa agent architecture and simulation pipeline">
+                <figcaption>
+                    <strong>Figure 1.</strong> Each agent pairs a <em>moral value module</em> (one of four dispositions) with a perception module and entity-oriented cognitive modules that update memory, form judgments, and plan actions consistent with its moral type. A reflection step verifies consistency with observed facts before actions execute. The environment then resolves outcomes and emits the next observation cycle.
+                </figcaption>
+            </figure>
+
+            <div class="grid-2 framework-grid">
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-brain"></i> Agent (<code>SoMa</code>)</h3>
+                    <ul>
+                        <li><strong>Moral module.</strong> Dispositional weights over concentric circles of concern.</li>
+                        <li><strong>Perception.</strong> Recent HP, positions, and activities of visible entities.</li>
+                        <li><strong>Entity-oriented cognition.</strong> Per-entity memory, judgment, and disposition — not event logs.</li>
+                        <li><strong>Action planning &amp; reflection.</strong> Resolves conflicting intentions; verifies plans against facts and moral type.</li>
+                    </ul>
                 </div>
-                
-                <h3 class="subsection-title">Population Dominance</h3>
-                <div class="grid-2">
-                    <div class="gallery-item">
-                        <img src="public/assets/population_Major_baseline.png" alt="Baseline Population">
-                        <div class="gallery-caption">Control Environment: Kin-focused Dominates</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="public/assets/population_Scarce_resource.png" alt="Resource Scarcity">
-                        <div class="gallery-caption">Severe Scarcity: Reciprocal Dominates</div>
-                    </div>
-                </div>
-                
-                <h3 class="subsection-title">Micro-Dynamics</h3>
-                <div class="grid-2">
-                    <div class="gallery-item">
-                        <img src="public/assets/agent_hp_with_action.png" alt="HP Trajectory">
-                        <div class="gallery-caption">Health Point Waterfall & Life Events</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="public/assets/family_network_Major_baseline.png" alt="Family Network">
-                        <div class="gallery-caption">Emergent Kinship Networking</div>
-                    </div>
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-mountain-sun"></i> Environment (<code>Social-Evol-HunT</code>)</h3>
+                    <ul>
+                        <li><strong>Survival.</strong> HP decays over time and injury; death at HP = 0 or maximum lifespan.</li>
+                        <li><strong>Production.</strong> Plants (low risk, low reward) vs. animals (high risk, high reward — failed hunts counter-attack).</li>
+                        <li><strong>Reproduction.</strong> Requires age and HP thresholds; newborns are fragile and usually need parental investment.</li>
+                        <li><strong>Social actions.</strong> <code>allocate</code>, <code>communicate</code>, <code>rob</code>, <code>fight</code> — no built-in punishment for antisocial behavior.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Citation -->
-    <section class="section citation-section reveal">
+
+    <!-- Validation -->
+    <section class="section validation-section reveal" id="validation">
         <div class="container">
-            <h2 class="section-title">Citation</h2>
+            <h2 class="section-title">Do the Agents Actually Act Moral?</h2>
+            <p class="section-subtitle">Before ablating what shapes evolution, we verify that moral dispositions produce distinctive, recoverable behavior.</p>
+
+            <div class="grid-2 validation-grid">
+                <figure class="figure-card">
+                    <img src="public/assets/mean_std_confusion_matrix@2x.png" alt="Soft confusion matrix of moral-type predictions">
+                    <figcaption>
+                        <strong>Fig 2a.</strong> A held-out classifier reads only trajectory traces and tries to infer each agent's moral type. Diagonal mass <strong>0.86–0.91</strong> across all four types, standard deviations under 0.02 across three runs — behavior recovers moral type reliably.
+                    </figcaption>
+                </figure>
+
+                <figure class="figure-card">
+                    <img src="public/assets/action_distribution_across_cases@2x.png" alt="Action distribution across test cases">
+                    <figcaption>
+                        <strong>Fig 2b.</strong> Action mix differs sharply by moral type: <em>Selfish</em> agents rob and fight disproportionately often; <em>Universal</em> and <em>Reciprocal</em> agents communicate and allocate HP far more than the rest. Signatures emerge from cognition alone — no behavioral priors are imposed.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Results -->
+    <section class="section results-section reveal" id="results">
+        <div class="container">
+            <h2 class="section-title">Who Wins Depends on the World</h2>
+            <p class="section-subtitle">Four controlled environments. Four different evolutionary outcomes — from the same starting population.</p>
+
+            <figure class="figure-card wide">
+                <img src="public/assets/population_grid_4panel.png" alt="Population dynamics across four experimental conditions">
+                <figcaption>
+                    <strong>Figure 3.</strong> Population-share trajectories across the four ablation conditions. Stacked areas show the percentage of each moral type over time; overlaid curves track absolute agent counts.
+                </figcaption>
+            </figure>
+
+            <div class="grid-2 results-grid">
+                <div class="result-card">
+                    <div class="result-tag tag-kin">A · Baseline</div>
+                    <h3>Kin-focused dominates when the world is forgiving.</h3>
+                    <p>With abundant food and cheap communication, there is no need to negotiate cooperation with strangers. Kin groups reproduce quickly and provision each other through cheap in-group trust. Broader moral circles pay a coordination tax they don't need.</p>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-tag tag-reciprocal">B · Resource Scarcity</div>
+                    <h3>Reciprocal beats kin when every HP is contested.</h3>
+                    <p>Selfish agents surge early by monopolizing resources, but collapse without a cooperative buffer. Kin-focused lineages cannot sustain reproduction under pressure. <em>Conditional</em> cooperation — share the gains, exclude free-riders — is the most robust strategy (3/4 replicates).</p>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-tag tag-universal">C · Social Interaction Cost</div>
+                    <h3>Universal wins when talk is too expensive.</h3>
+                    <p>With only one communication round before production, reciprocal agents can't set up the trust-verification cycle their strategy requires. Unconditional cooperators default to contributing anyway, absorbing some exploitation but coordinating large-group hunts that no one else can pull off (2/4 replicates).</p>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-tag tag-opacity">D · Moral Type Opacity</div>
+                    <h3>Reciprocal dies when intent is invisible.</h3>
+                    <p>When agents must <em>infer</em> moral types from behavior, a retaliating reciprocal looks indistinguishable from a selfish aggressor — and gets preemptively attacked. Misattribution cascades turn potential allies into enemies. Only kin-focused (who use kinship as a shortcut) and universal (who never retaliate) survive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Takeaways -->
+    <section class="section takeaways-section reveal" id="takeaways">
+        <div class="container">
+            <h2 class="section-title">Why This Matters</h2>
+
+            <div class="grid-3 takeaway-grid">
+                <div class="takeaway-card">
+                    <div class="takeaway-num">01</div>
+                    <h3>Expanding-circle morality is empirically grounded, not just philosophical.</h3>
+                    <p>Broader, self-consistent moral circles generally produce better evolutionary outcomes — but only when the world lets them. The theoretical framework meets computational evidence.</p>
+                </div>
+
+                <div class="takeaway-card">
+                    <div class="takeaway-num">02</div>
+                    <h3>Cognition is a first-class variable in moral evolution.</h3>
+                    <p>The ability to <em>identify</em> another agent's moral orientation matters as much as environmental pressure. A reliable in-group signal — kinship, reputation, marker — is often what lets cooperation scale.</p>
+                </div>
+
+                <div class="takeaway-card">
+                    <div class="takeaway-num">03</div>
+                    <h3>A general platform for computational social evolution.</h3>
+                    <p><code>SoMa</code> + <code>Social-Evol-HunT</code> generalize beyond morality — to norm emergence, reputation systems, inter-group dynamics, and beyond. The framework is open-source.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation -->
+    <section class="section citation-section reveal" id="paper">
+        <div class="container">
+            <h2 class="section-title">Cite</h2>
             <div class="code-block">
                 <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
 <pre><code>@inproceedings{zhou2026moral,
     title={Investigating Moral Evolution via LLM-based Agent Simulation},
-    author={Zhou, Ziheng and Tang, Huacong and Bi, Mingjie and Kang, Yipeng 
-            and He, Wanying and Sun, Fang and Sun, Yizhou and Wu, Ying Nian 
+    author={Zhou, Ziheng and Tang, Huacong and Bi, Mingjie and Kang, Yipeng
+            and He, Wanying and Sun, Fang and Sun, Yizhou and Wu, Ying Nian
             and Terzopoulos, Demetri and Zhong, Fangwei},
-    booktitle={Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL)},
+    booktitle={Proceedings of the 64th Annual Meeting of the Association
+               for Computational Linguistics (ACL)},
     year={2026}
 }</code></pre>
+            </div>
+
+            <div class="links-row">
+                <a href="https://github.com/MoralAgentSim/Simulation-Engine" class="link-pill" target="_blank"><i class="fa-brands fa-github"></i> Simulation-Engine</a>
+                <a href="https://github.com/MoralAgentSim/MoralAgentSim.github.io" class="link-pill" target="_blank"><i class="fa-brands fa-github"></i> Project page source</a>
+                <a href="https://github.com/MoralAgentSim" class="link-pill" target="_blank"><i class="fa-solid fa-building"></i> MoralAgentSim org</a>
+                <a href="https://openreview.net/forum?id=jjvwT6ZCeP" class="link-pill" target="_blank"><i class="fa-solid fa-comments"></i> OpenReview</a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 UCLA, BIGAI, BNU. Project page designed for ACL 2026.</p>
+            <p>&copy; 2026 UCLA · BIGAI · BNU. Accepted at ACL 2026 Main Conference.</p>
         </div>
     </footer>
 
