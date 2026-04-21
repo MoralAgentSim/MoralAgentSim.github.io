@@ -3,303 +3,676 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investigating Moral Evolution via LLM-based Agent Simulation — ACL 2026</title>
-    <meta name="description" content="An LLM-based agent simulation framework for studying how morality evolves in prehistoric hunter-gatherer societies. ACL 2026 Main Conference.">
+    <title>Why Are We Moral? An LLM-based Agent Simulation Approach to Study Moral Evolution</title>
+    <meta name="description" content="ACL 2026. An LLM-based agent simulation framework that brings cognitive realism to the study of moral evolution. Cooperation and mutual help emerge as the central drivers of evolutionary survival.">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+<main>
 
-        <div class="hero-wrap">
-            <div class="hero-text">
-                <div class="venue-badge">Accepted · ACL 2026 Main Conference · Oral</div>
-                <h1 class="title">Investigating Moral Evolution via<br><span class="gradient-text">LLM-based Agent Simulation</span></h1>
+    <!-- ─── Paper header ──────────────────────────────────────── -->
+    <header class="paper-header">
+        <h1>Why Are We Moral?<br><span class="subtitle">An LLM-based Agent Simulation Approach<br>to Study Moral Evolution</span></h1>
 
-                <div class="authors">
-                    <a href="#" class="author">Ziheng Zhou*</a>
-                    <a href="#" class="author">Huacong Tang*</a>
-                    <a href="#" class="author">Mingjie Bi*</a>
-                    <a href="#" class="author">Yipeng Kang</a>
-                    <a href="#" class="author">Wanying He</a>
-                    <a href="#" class="author">Fang Sun</a>
-                    <a href="#" class="author">Yizhou Sun</a>
-                    <a href="#" class="author">Ying Nian Wu</a>
-                    <a href="#" class="author">Demetri Terzopoulos</a>
-                    <a href="#" class="author principal">Fangwei Zhong</a>
-                </div>
+        <div class="authors">
+            <span class="author">Ziheng Zhou<sup>*1</sup></span>
+            <span class="author">Huacong Tang<sup>*2</sup></span>
+            <span class="author">Mingjie Bi<sup>*1</sup></span>
+            <span class="author">Yipeng Kang<sup>3</sup></span>
+            <span class="author">Wanying He<sup>1</sup></span>
+            <span class="author">Fang Sun<sup>1</sup></span>
+            <span class="author">Yizhou Sun<sup>1</sup></span>
+            <span class="author">Ying Nian Wu<sup>1</sup></span>
+            <span class="author">Demetri Terzopoulos<sup>1</sup></span>
+            <span class="author">Fangwei Zhong<sup>†2,3</sup></span>
+        </div>
 
-                <div class="affiliations">
-                    UCLA &nbsp;·&nbsp; BIGAI &nbsp;·&nbsp; Beijing Normal University
-                </div>
+        <div class="affiliations">
+            <sup>1</sup>UCLA &nbsp;&nbsp;<sup>2</sup>Beijing Normal University &nbsp;&nbsp;<sup>3</sup>BIGAI
+        </div>
 
-                <div class="actions">
-                    <a href="#paper" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Paper</a>
-                    <a href="https://github.com/MoralAgentSim/social-evol-sim" class="btn btn-secondary" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-                    <a href="https://openreview.net/forum?id=jjvwT6ZCeP" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-comments"></i> OpenReview</a>
-                </div>
+        <div class="meta-line">
+            <span class="author-mark"><sup>*</sup>Equal contribution.</span>
+            <span class="author-mark"><sup>†</sup>Corresponding author.</span>
+        </div>
+
+        <div class="venue">ACL 2026 Conference &middot; Oral</div>
+
+        <nav class="paper-links">
+            <a href="https://arxiv.org/abs/2509.17703" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/MoralAgentSim/social-evol-sim" target="_blank" rel="noopener">Code</a>
+            <a href="https://openreview.net/forum?id=jjvwT6ZCeP" target="_blank" rel="noopener">OpenReview</a>
+            <a href="#bibtex">BibTeX</a>
+        </nav>
+    </header>
+
+    <!-- ─── Teaser figure ─────────────────────────────────────── -->
+    <figure class="teaser">
+        <img src="public/assets/framework.png" alt="Framework: MoRE agent architecture and Social-Evol environment">
+        <figcaption>
+            Overview of our framework. Cognitively-realistic agents (<em>MoRE</em>) perceive entities in the world, maintain per-entity memory and dispositions, reason under one of four moral values, plan actions, and reflect for consistency before acting. Agents interact in a prehistoric hunter-gatherer society (<em>Social-Evol</em>) where they hunt, gather, share, communicate, reproduce, and fight. Moral evolution is observed over many interaction steps.
+        </figcaption>
+    </figure>
+
+    <!-- ─── Abstract ──────────────────────────────────────────── -->
+    <section id="abstract">
+        <h2>Abstract</h2>
+        <p>The evolution of morality presents a puzzle: natural selection should favor self-interest, yet humans developed moral systems promoting altruism. Traditional approaches must abstract away cognitive processes, leaving open <em>how cognitive factors shape moral evolution</em>. We introduce an LLM-based agent simulation framework that brings <strong>cognitive realism</strong> to this question: agents with varying moral dispositions perceive, remember, reason, and decide in a simulated prehistoric hunter-gatherer society. This enables us to manipulate factors that traditional models cannot represent&mdash;such as moral type observability and communication bandwidth&mdash;and to discover emergent cognitive mechanisms from agent interactions. Across 20 runs spanning four settings, we find that <strong>cooperation and mutual help are the central drivers of survival</strong>, with universal and reciprocal morality exhibiting the most stable evolutionary outcomes across conditions while selfishness is strongly disfavoured. We also observe two central mechanisms that emerge from cognition, including a <em>cost of moral judgment</em> and a <em>self-purging effect</em> among selfish agents. We validate robustness across multiple LLM backbones, architecture ablations, and prompt-sensitivity analyses. This work establishes LLM-based simulation as a powerful new paradigm to complement traditional research in evolutionary biology and anthropology.</p>
+    </section>
+
+    <!-- ─── Motivation ────────────────────────────────────────── -->
+    <section id="motivation">
+        <h2>Why cognitive realism?</h2>
+        <p>Prior approaches to moral evolution&mdash;evolutionary game theory, agent-based models, anthropological fieldwork&mdash;share a fundamental limitation. They must <em>abstract away</em> the cognitive processes that underlie moral behaviour, encoding agent strategies as fixed rules or payoff matrices. This prevents investigation of how cognitive factors&mdash;memory of past interactions, the ability to identify others' moral dispositions, communication bandwidth, reasoning under uncertainty&mdash;interact with environmental pressures to shape moral evolution.</p>
+
+        <p>LLM-based agent simulation changes what is possible. Agents with values, memory, perception, and reasoning generate emergent behaviours whose trajectories we can observe under controlled conditions. For the first time, cognition becomes a <em>first-class experimental variable</em> in the study of moral evolution.</p>
+    </section>
+
+    <!-- ─── Framework ─────────────────────────────────────────── -->
+    <section id="framework">
+        <h2>Framework</h2>
+        <p>Each agent is built on <strong>MoRE</strong>&mdash;a <strong>m</strong>orality-driven, <strong>e</strong>ntity-oriented cognitive architecture with <strong>r</strong>eflection. A moral value module (one of four dispositions) conditions how the agent perceives entities, updates per-entity memory and judgments, plans actions, and reflects for consistency with observed facts before executing. Memory is organised <em>per entity</em> rather than as an undifferentiated event log, allowing agents to maintain and update distinct representations of each peer.</p>
+
+        <!-- MoRE cognitive pipeline -->
+        <div class="more-pipeline" aria-label="MoRE cognitive pipeline: value, perceive, memory, reason, reflect, act">
+            <svg viewBox="0 0 820 120" role="img" aria-hidden="true">
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/>
+                    </marker>
+                </defs>
+
+                <!-- value module (left, circular, accent) -->
+                <g>
+                    <circle cx="60" cy="60" r="42" fill="#fbf9f5" stroke="#6b1d1d" stroke-width="1.4"/>
+                    <text x="60" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#6b1d1d">Moral</text>
+                    <text x="60" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#6b1d1d">Value</text>
+                </g>
+
+                <!-- pipeline stages (rectangles with rounded corners) -->
+                <g font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">
+                    <rect x="130" y="36" width="120" height="48" rx="3" fill="#ffffff" stroke="#d8d2c5"/>
+                    <text x="190" y="57" text-anchor="middle">Perceive</text>
+                    <text x="190" y="72" text-anchor="middle" font-weight="400" font-size="10" fill="#5a5a5a">entities</text>
+
+                    <rect x="270" y="36" width="120" height="48" rx="3" fill="#ffffff" stroke="#d8d2c5"/>
+                    <text x="330" y="57" text-anchor="middle">Update memory</text>
+                    <text x="330" y="72" text-anchor="middle" font-weight="400" font-size="10" fill="#5a5a5a">per-entity</text>
+
+                    <rect x="410" y="36" width="120" height="48" rx="3" fill="#ffffff" stroke="#d8d2c5"/>
+                    <text x="470" y="57" text-anchor="middle">Reason &amp; plan</text>
+                    <text x="470" y="72" text-anchor="middle" font-weight="400" font-size="10" fill="#5a5a5a">action</text>
+
+                    <rect x="550" y="36" width="120" height="48" rx="3" fill="#ffffff" stroke="#d8d2c5"/>
+                    <text x="610" y="57" text-anchor="middle">Reflect</text>
+                    <text x="610" y="72" text-anchor="middle" font-weight="400" font-size="10" fill="#5a5a5a">vs. observation</text>
+
+                    <rect x="690" y="36" width="100" height="48" rx="3" fill="#6b1d1d" stroke="#6b1d1d"/>
+                    <text x="740" y="65" text-anchor="middle" fill="#ffffff">Act</text>
+                </g>
+
+                <!-- arrows -->
+                <g stroke="#8a8a8a" stroke-width="1" fill="none" marker-end="url(#arrow)">
+                    <line x1="104" y1="60" x2="126" y2="60"/>
+                    <line x1="250" y1="60" x2="266" y2="60"/>
+                    <line x1="390" y1="60" x2="406" y2="60"/>
+                    <line x1="530" y1="60" x2="546" y2="60"/>
+                    <line x1="670" y1="60" x2="686" y2="60"/>
+                </g>
+
+                <!-- value-module conditions every stage (dashed arc) -->
+                <g stroke="#6b1d1d" stroke-width="0.9" stroke-dasharray="3 3" fill="none" opacity="0.55">
+                    <path d="M 60 102 Q 60 115, 190 115"/>
+                    <path d="M 60 102 Q 60 115, 330 115"/>
+                    <path d="M 60 102 Q 60 115, 470 115"/>
+                    <path d="M 60 102 Q 60 115, 610 115"/>
+                </g>
+                <text x="335" y="14" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="11" fill="#8a8a8a">moral value conditions every stage</text>
+            </svg>
+        </div>
+
+        <p>The environment, <strong>Social-Evol</strong>, simulates a prehistoric hunter-gatherer society. HP decays over time and from injury; death occurs at HP = 0 or maximum lifespan. Agents choose among <strong>eight action types</strong> each step. Crucially, <em>there is no built-in punishment for antisocial behaviour</em>: cooperation emerges (or fails to emerge) from the interaction of cognition, morality, and ecology alone.</p>
+
+        <!-- 8-action pictogram strip -->
+        <div class="actions-strip" aria-label="The eight action types available to each agent">
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M16 27 C 10 22, 6 16, 10 10 C 14 6, 18 8, 16 14 C 18 8, 22 6, 24 10 C 27 16, 22 22, 16 27 Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                    <line x1="16" y1="14" x2="16" y2="27" stroke="currentColor" stroke-width="1"/>
+                </svg>
+                <span>Collect</span><small>plants</small>
             </div>
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <line x1="6" y1="26" x2="26" y2="6" stroke="currentColor" stroke-width="1.4"/>
+                    <polyline points="19,6 26,6 26,13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                    <line x1="4" y1="28" x2="10" y2="22" stroke="currentColor" stroke-width="1.4"/>
+                </svg>
+                <span>Hunt</span><small>animals</small>
+            </div>
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <circle cx="10" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    <circle cx="22" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    <line x1="13" y1="18" x2="19" y2="18" stroke="currentColor" stroke-width="1.3"/>
+                    <polyline points="17,15 19,18 17,21" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                </svg>
+                <span>Allocate</span><small>to others</small>
+            </div>
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M5 9 Q5 6 8 6 L24 6 Q27 6 27 9 L27 19 Q27 22 24 22 L14 22 L9 26 L9 22 L8 22 Q5 22 5 19 Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                </svg>
+                <span>Communicate</span><small>form coalitions</small>
+            </div>
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <line x1="6" y1="6" x2="22" y2="22" stroke="currentColor" stroke-width="1.4"/>
+                    <line x1="22" y1="6" x2="6" y2="22" stroke="currentColor" stroke-width="1.4"/>
+                    <circle cx="6" cy="6" r="1.8" fill="currentColor"/>
+                    <circle cx="22" cy="6" r="1.8" fill="currentColor"/>
+                </svg>
+                <span>Fight</span><small>inflict damage</small>
+            </div>
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <rect x="8" y="12" width="16" height="12" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    <path d="M12 12 Q12 8 16 8 Q20 8 20 12" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    <line x1="12" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="1"/>
+                </svg>
+                <span>Rob</span><small>take resources</small>
+            </div>
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M16 25 L7 16 Q3 12 7 8 Q11 4 16 10 Q21 4 25 8 Q29 12 25 16 Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                </svg>
+                <span>Reproduce</span><small>offspring</small>
+            </div>
+            <div class="action">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M22 18 A 8 8 0 1 1 14 10 A 6 6 0 0 0 22 18 Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                </svg>
+                <span>Rest</span><small>do nothing</small>
+            </div>
+        </div>
 
-            <div class="hero-art">
-                <img src="public/assets/hero_expanding_circles.png" alt="Expanding circles of moral concern: Self, Kin, Reciprocal Group, Universal Group">
-                <div class="hero-art-caption">Expanding circles of moral concern — from self, to kin, to reciprocal group, to universal.</div>
+        <h3>The four moral dispositions</h3>
+        <p>Agents differ only in the <em>radius of their moral concern</em>, following the philosophical tradition of the expanding circle:</p>
+
+        <div class="circle-diagram" aria-label="Expanding circles of moral concern: self, kin, reciprocal, universal">
+            <svg viewBox="0 0 320 320" role="img" aria-hidden="true">
+                <!-- concentric circles: outer = universal (teal), inner = selfish (slate) -->
+                <circle cx="160" cy="160" r="150" fill="#3d7068" fill-opacity="0.14" stroke="#3d7068" stroke-opacity="0.55" stroke-width="1"/>
+                <circle cx="160" cy="160" r="110" fill="#8d6a2b" fill-opacity="0.16" stroke="#8d6a2b" stroke-opacity="0.6"  stroke-width="1"/>
+                <circle cx="160" cy="160" r="70"  fill="#8a3b3b" fill-opacity="0.20" stroke="#8a3b3b" stroke-opacity="0.7"  stroke-width="1"/>
+                <circle cx="160" cy="160" r="30"  fill="#5e626a" fill-opacity="0.35" stroke="#5e626a" stroke-opacity="0.85" stroke-width="1"/>
+
+                <!-- band labels -->
+                <g font-family="Inter, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle">
+                    <text x="160" y="163" font-weight="600">Self</text>
+                    <text x="160" y="110" font-weight="600">Kin</text>
+                    <text x="160" y="70"  font-weight="600">Reciprocal</text>
+                    <text x="160" y="28"  font-weight="600">Universal</text>
+                </g>
+
+                <!-- outward arrow: from inside the Self ring, all the way out to the Universal ring (inside the outer circle) -->
+                <g stroke="#6b1d1d" stroke-width="1.3" fill="none" opacity="0.9">
+                    <line x1="160" y1="180" x2="300" y2="180"/>
+                    <polyline points="293,175 300,180 293,185"/>
+                </g>
+                <text x="230" y="172" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="11" fill="#6b1d1d" opacity="0.9">expanding</text>
+            </svg>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="swatch" style="background:var(--sel)"></span>
+                    <span><span class="label">Selfish.</span> <span class="desc">Personal survival only; others are instrumental.</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="swatch" style="background:var(--kin)"></span>
+                    <span><span class="label">Kin-focused.</span> <span class="desc">Extends concern to genetic relatives; non-kin are outsiders.</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="swatch" style="background:var(--rec)"></span>
+                    <span><span class="label">Reciprocal.</span> <span class="desc">Cares for anyone who reciprocates; excludes free-riders.</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="swatch" style="background:var(--uni)"></span>
+                    <span><span class="label">Universal.</span> <span class="desc">Prosocial behaviour extended to everyone, unconditionally.</span></span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- The Puzzle -->
-    <section class="section puzzle-section reveal">
-        <div class="container">
-            <div class="pull-quote">
-                <p>&ldquo;Natural selection should favor pure self-interest. Yet humans developed moral systems that promote broad cooperation.&rdquo;</p>
-                <span class="pull-quote-attrib">— The puzzle of moral evolution</span>
+    <!-- ─── Main findings ─────────────────────────────────────── -->
+    <section id="findings">
+        <h2>Main findings</h2>
+
+        <div class="callout">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+                <!-- two linked circles: mutual help / cooperation -->
+                <circle cx="19" cy="24" r="11" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                <circle cx="29" cy="24" r="11" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                <!-- reciprocal arrows inside the overlap -->
+                <path d="M21 20 Q24 18 27 20" fill="none" stroke="currentColor" stroke-width="1.1"/>
+                <polyline points="26,19 27,20 26,21" fill="none" stroke="currentColor" stroke-width="1.1"/>
+                <path d="M27 28 Q24 30 21 28" fill="none" stroke="currentColor" stroke-width="1.1"/>
+                <polyline points="22,29 21,28 22,27" fill="none" stroke="currentColor" stroke-width="1.1"/>
+            </svg>
+            <div>
+                <strong>Cooperation is the central driver of evolutionary survival.</strong>
+                Across all four experimental settings, cooperative moral types dominate: universal and reciprocal morality exhibit the most stable outcomes across conditions, while selfishness is strongly disfavoured&mdash;surviving in no setting and eliminated in every run when moral types are invisible.
+            </div>
+        </div>
+
+        <div class="callout">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+                <!-- brain / neural outline -->
+                <path d="M24 8 Q14 8 11 17 Q4 19 6 27 Q4 34 12 35 Q14 41 24 41 Q34 41 36 35 Q44 34 42 27 Q44 19 37 17 Q34 8 24 8 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M24 8 L24 41" stroke="currentColor" stroke-width="0.9" fill="none"/>
+                <path d="M16 18 Q21 22 16 26 Q21 30 16 34" stroke="currentColor" stroke-width="0.9" fill="none"/>
+                <path d="M32 18 Q27 22 32 26 Q27 30 32 34" stroke="currentColor" stroke-width="0.9" fill="none"/>
+                <circle cx="14" cy="22" r="1.2" fill="currentColor"/>
+                <circle cx="34" cy="22" r="1.2" fill="currentColor"/>
+                <circle cx="14" cy="30" r="1.2" fill="currentColor"/>
+                <circle cx="34" cy="30" r="1.2" fill="currentColor"/>
+            </svg>
+            <div>
+                <strong>Cognition is a decisive mediator.</strong>
+                Whether a cooperative strategy thrives or collapses is not determined by the moral value alone: it is shaped by how agents <em>perceive, remember, judge, and communicate</em>, too. Cognitive factors&mdash;the cost of judgment, type inference, same-type recognition, communication bandwidth&mdash;also decide <em>which</em> cooperative strategies survive under which environmental pressures.
+            </div>
+        </div>
+
+        <figure>
+            <img src="public/assets/population_grid_4panel.png" alt="Population dynamics across four settings">
+            <figcaption>
+                Population dynamics across four experimental settings. Each panel shows a representative run in which the most frequently surviving moral type in that setting persists to the end. Outcomes vary across replicates; aggregate survival counts over 20 runs are reported in the paper.
+            </figcaption>
+        </figure>
+
+        <h3>Four settings, four evolutionary outcomes</h3>
+
+        <div class="survival-matrix" aria-label="Survival counts across four experimental settings and four moral types">
+            <div class="matrix-title">Survivors by setting and moral type (fraction of initial population)</div>
+
+            <div class="matrix-row">
+                <div class="row-label">Baseline <small>N = 8 per type</small></div>
+                <div class="bars">
+                    <div class="bar" data-type="uni" style="--v: 0.50"><span class="name">Universal</span><span class="track"><span class="fill"></span></span><span class="count">4 / 8</span></div>
+                    <div class="bar" data-type="rec" style="--v: 0.25"><span class="name">Reciprocal</span><span class="track"><span class="fill"></span></span><span class="count">2 / 8</span></div>
+                    <div class="bar" data-type="kin" data-winner="true" style="--v: 0.75"><span class="name">Kin-focused</span><span class="track"><span class="fill"></span></span><span class="count">6 / 8</span></div>
+                    <div class="bar" data-type="sel" style="--v: 0.25"><span class="name">Selfish</span><span class="track"><span class="fill"></span></span><span class="count">2 / 8</span></div>
+                </div>
             </div>
 
-            <div class="grid-3 puzzle-stats">
-                <div class="stat-card">
-                    <div class="stat-value">4</div>
-                    <div class="stat-label">Moral dispositions, from selfish to universal</div>
+            <div class="matrix-row">
+                <div class="row-label">Scarce Resource <small>N = 4 per type</small></div>
+                <div class="bars">
+                    <div class="bar" data-type="uni" style="--v: 0.50"><span class="name">Universal</span><span class="track"><span class="fill"></span></span><span class="count">2 / 4</span></div>
+                    <div class="bar" data-type="rec" data-winner="true" style="--v: 0.75"><span class="name">Reciprocal</span><span class="track"><span class="fill"></span></span><span class="count">3 / 4</span></div>
+                    <div class="bar" data-type="kin" data-zero="true" style="--v: 0.02"><span class="name">Kin-focused</span><span class="track"><span class="fill"></span></span><span class="count">0 / 4</span></div>
+                    <div class="bar" data-type="sel" style="--v: 0.25"><span class="name">Selfish</span><span class="track"><span class="fill"></span></span><span class="count">1 / 4</span></div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">&gt;0.86</div>
-                    <div class="stat-label">Moral-type recoverability from behavior alone</div>
+            </div>
+
+            <div class="matrix-row">
+                <div class="row-label">High Social Cost <small>N = 4 per type</small></div>
+                <div class="bars">
+                    <div class="bar" data-type="uni" style="--v: 0.50"><span class="name">Universal</span><span class="track"><span class="fill"></span></span><span class="count">2 / 4</span></div>
+                    <div class="bar" data-type="rec" data-winner="true" style="--v: 0.75"><span class="name">Reciprocal</span><span class="track"><span class="fill"></span></span><span class="count">3 / 4</span></div>
+                    <div class="bar" data-type="kin" data-zero="true" style="--v: 0.02"><span class="name">Kin-focused</span><span class="track"><span class="fill"></span></span><span class="count">0 / 4</span></div>
+                    <div class="bar" data-type="sel" style="--v: 0.25"><span class="name">Selfish</span><span class="track"><span class="fill"></span></span><span class="count">1 / 4</span></div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">4×</div>
-                    <div class="stat-label">Environments probed — baseline, scarcity, friction, opacity</div>
+            </div>
+
+            <div class="matrix-row">
+                <div class="row-label">Type Invisible <small>N = 4 per type</small></div>
+                <div class="bars">
+                    <div class="bar" data-type="uni" data-winner="true" style="--v: 1.0"><span class="name">Universal</span><span class="track"><span class="fill"></span></span><span class="count">4 / 4</span></div>
+                    <div class="bar" data-type="rec" style="--v: 0.50"><span class="name">Reciprocal</span><span class="track"><span class="fill"></span></span><span class="count">2 / 4</span></div>
+                    <div class="bar" data-type="kin" style="--v: 0.50"><span class="name">Kin-focused</span><span class="track"><span class="fill"></span></span><span class="count">2 / 4</span></div>
+                    <div class="bar" data-type="sel" data-zero="true" style="--v: 0.02"><span class="name">Selfish</span><span class="track"><span class="fill"></span></span><span class="count">0 / 4</span></div>
                 </div>
+            </div>
+
+            <div class="matrix-foot">
+                Bar length encodes the number of surviving agents relative to the initial count. Across all four settings, cooperative types dominate; selfish agents win nowhere.
+            </div>
+        </div>
+
+        <div class="setting" data-winner="kin">
+            <div class="setting-head">
+                <h4><span class="winner-dot"></span>Baseline</h4>
+                <span class="counts">Kin 6/8 &middot; Universal 4/8</span>
+            </div>
+            <p>With abundant resources, observable moral types, and sufficient social interaction rounds, kin lineages grow self-sustaining and gain a compounding advantage through internal family cooperation. Universal agents also survive frequently, indicating that broader moral circles remain competitive even under favourable conditions.</p>
+        </div>
+
+        <div class="setting" data-winner="rec">
+            <div class="setting-head">
+                <h4><span class="winner-dot"></span>Scarce Resource</h4>
+                <span class="counts">Reciprocal 3/4 &middot; Universal 2/4</span>
+            </div>
+            <p>Under reduced resource abundance, agents selectively avoid less cooperative partners. Reciprocal's conditional cooperation ensures fair resource sharing within coalitions while excluding free-riders. Notably, selfish agents self-destruct: recognising same-type peers as direct competitors for scarce resources, they preemptively attack one another and fail to form coalitions.</p>
+        </div>
+
+        <div class="setting" data-winner="rec">
+            <div class="setting-head">
+                <h4><span class="winner-dot"></span>High Social Cost</h4>
+                <span class="counts">Reciprocal 3/4 &middot; Universal 2/4</span>
+            </div>
+            <p>With only one communication round before production, kin-focused agents cannot confirm the explicit teaming signals their strategy requires and drop out. Universal agents contribute unconditionally; reciprocal agents directly identify trustworthy partners without lengthy negotiation. Both form effective coalitions; selfish agents rarely persist.</p>
+        </div>
+
+        <div class="setting" data-winner="uni">
+            <div class="setting-head">
+                <h4><span class="winner-dot"></span>Moral Type Invisible</h4>
+                <span class="counts">Universal 4/4 &middot; Reciprocal 2/4 &middot; Kin 2/4 &middot; Selfish 0/4</span>
+            </div>
+            <p>When moral type labels are hidden, universal agents cooperate regardless of others' types and are never misread as uncooperative&mdash;surviving in every run. Reciprocal agents suffer from noisy type inference; kin-focused agents briefly appear cooperative until selectivity is detected. Selfish agents are quickly exposed through aggression and eliminated in every run.</p>
+        </div>
+    </section>
+
+    <!-- ─── Emergent mechanisms ──────────────────────────────── -->
+    <section id="emergent">
+        <h2>Two mechanisms emerge from cognition</h2>
+        <p>Beyond the aggregate result, two mechanisms arise from cognition itself&mdash;neither is explicitly encoded, yet both decisively shape evolutionary outcomes and deepen our understanding of <em>why</em> cooperation prevails.</p>
+
+        <!-- Mechanism I: self-purging -->
+        <div class="mechanism">
+            <div class="mech-visual" aria-hidden="true">
+                <svg viewBox="0 0 240 180" role="img">
+                    <defs>
+                        <marker id="sp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M0,0 L10,5 L0,10 z" fill="#8a3b3b"/>
+                        </marker>
+                    </defs>
+
+                    <!-- attack arrows between the three selfish agents -->
+                    <g stroke="#8a3b3b" stroke-width="1.3" fill="none" marker-end="url(#sp-arr)">
+                        <path d="M 72 52 Q 120 36 166 52"/>
+                        <path d="M 168 62 Q 120 78 74 62"/>
+                        <path d="M 150 70 Q 140 100 126 130"/>
+                        <path d="M 112 130 Q 98 100 90 72"/>
+                        <path d="M 78 70 Q 80 110 108 138"/>
+                    </g>
+
+                    <!-- 3 selfish agents (slate) arranged in a triangle -->
+                    <g>
+                        <circle cx="60" cy="52" r="16" fill="#5e626a" opacity="0.85"/>
+                        <text x="60" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
+                    </g>
+                    <g>
+                        <circle cx="180" cy="52" r="16" fill="#5e626a" opacity="0.85"/>
+                        <text x="180" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
+                    </g>
+                    <g>
+                        <circle cx="120" cy="138" r="16" fill="#5e626a" opacity="0.85"/>
+                        <text x="120" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
+                    </g>
+
+                    <!-- caption -->
+                    <text x="120" y="173" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="11" fill="#8a8a8a">same-type → perceived as competitor → preemptive attack</text>
+                </svg>
+            </div>
+            <div class="mech-text">
+                <h3>I. Self-purging of selfish agents</h3>
+                <p>Because cognitively realistic selfish agents reason about competitors, they recognise same-type peers as threats and preemptively attack them. Combined with exclusion by moral coalitions, selfishness fails not only from lacking cooperation but from actively generating internal conflict&mdash;a direct consequence of cognition applied to a selfish value system. Cooperation thus prevails through both its positive benefits <em>and</em> the self-destructive dynamics of its absence.</p>
+            </div>
+        </div>
+
+        <!-- Mechanism II: cost of moral judgment -->
+        <div class="mechanism">
+            <div class="mech-visual" aria-hidden="true">
+                <svg viewBox="0 0 260 180" role="img">
+                    <!-- Universal lane: short fast path to ✓ -->
+                    <g>
+                        <text x="8" y="40" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#3d7068">Universal</text>
+                        <line x1="72" y1="48" x2="138" y2="48" stroke="#3d7068" stroke-width="2.2"/>
+                        <circle cx="72" cy="48" r="4" fill="#3d7068"/>
+                        <circle cx="146" cy="48" r="9" fill="#3d7068"/>
+                        <text x="146" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#fff">✓</text>
+                        <text x="162" y="52" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#5a5a5a">reputation settles fast</text>
+                    </g>
+
+                    <!-- Reciprocal/Kin lane: longer, with ?'s, ending with risk of ✗ -->
+                    <g>
+                        <text x="8" y="100" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#8d6a2b">Others</text>
+                        <line x1="72" y1="108" x2="228" y2="108" stroke="#8d6a2b" stroke-width="2.2" stroke-dasharray="4 3"/>
+                        <circle cx="72" cy="108" r="4" fill="#8d6a2b"/>
+                        <circle cx="108" cy="108" r="7" fill="#fbf9f5" stroke="#8d6a2b" stroke-width="1.5"/>
+                        <text x="108" y="111" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#8d6a2b">?</text>
+                        <circle cx="148" cy="108" r="7" fill="#fbf9f5" stroke="#8d6a2b" stroke-width="1.5"/>
+                        <text x="148" y="111" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#8d6a2b">?</text>
+                        <circle cx="188" cy="108" r="7" fill="#fbf9f5" stroke="#8d6a2b" stroke-width="1.5"/>
+                        <text x="188" y="111" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#8d6a2b">?</text>
+                        <circle cx="228" cy="108" r="9" fill="#8a3b3b"/>
+                        <text x="228" y="112" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#fff">✗</text>
+                        <text x="92" y="132" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#8a8a8a">repeated judging · risk of misread</text>
+                    </g>
+
+                    <!-- time axis -->
+                    <g stroke="#8a8a8a" stroke-width="0.9" fill="none">
+                        <line x1="72" y1="160" x2="232" y2="160"/>
+                        <polyline points="226,156 232,160 226,164"/>
+                    </g>
+                    <text x="152" y="174" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#8a8a8a">time to settled reputation</text>
+                </svg>
+            </div>
+            <div class="mech-text">
+                <h3>II. Cost of moral judgment</h3>
+                <p>Assessing others' trustworthiness takes time under limited lifespans and carries the risk of misjudgment&mdash;wrongly excluding allies, or being wrongly excluded. Universal agents uniquely avoid this cost: they never produce behaviours that could be misread as hostile, so their reputation settles quickly. When judgment cost is high, a &ldquo;willing-to-take-a-loss&rdquo; strategy builds reputation faster and secures better cooperation&mdash;connecting to costly signalling and bounded rationality. This explains why universal morality is notably robust across challenging conditions, especially when moral types are invisible.</p>
             </div>
         </div>
     </section>
 
-    <!-- Abstract -->
-    <section class="section abstract-section reveal" id="abstract">
-        <div class="container">
-            <h2 class="section-title">Abstract</h2>
-            <div class="glass-card abstract-card">
-                <p>
-                    The evolution of morality is a puzzle: natural selection should favor self-interest, yet humans developed moral systems that promote cooperation. We introduce an LLM-based agent simulation that models prehistoric hunter-gatherer societies, endowing agents with moral dispositions drawn from the philosophical <em>expanding circles of concern</em> — self, kin, reciprocal group, and universal group.
-                </p>
-                <p>
-                    Our simulations reveal the critical roles of <strong>ecological carrying capacity</strong>, <strong>social friction cost</strong>, and <strong>moral-type observability</strong> in determining which moral orientation achieves societal dominance. The same set of moral agents produces different evolutionary winners depending on which cognitive and environmental factors dominate.
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- ─── Validation ───────────────────────────────────────── -->
+    <section id="validation">
+        <h2>Validation</h2>
+        <p>We validate the simulation along three axes. First, <strong>morality&ndash;behaviour consistency</strong>: an independent GPT-5 evaluator infers each agent's moral type from observed behaviour alone, achieving diagonal accuracy of <strong>0.89 &plusmn; 0.03</strong> averaged over 8 runs. Second, <strong>cross-LLM robustness</strong>: the baseline setting reproduces with Qwen-3.5 and Kimi-K2.5 beyond the primary GPT-5-mini backbone, with consistent alignment. Third, <strong>architecture ablation</strong>: removing any single cognitive module degrades behaviour&ndash;morality alignment (largest drop from removing long-term memory); stripping all modules reduces diagonal accuracy to 0.67, confirming each component contributes meaningfully beyond standard LLM reasoning. Prompt-sensitivity tests using two semantically equivalent rewrites show negligible variation (&le; 0.03).</p>
 
-    <!-- Expanding Circles -->
-    <section class="section mechanics-section reveal" id="mechanics">
-        <div class="container">
-            <h2 class="section-title">The Four Moral Types</h2>
-            <p class="section-subtitle">Agents differ only in the radius of their moral concern. Everything else — cognition, perception, environment — is identical.</p>
-
-            <div class="grid-4">
-                <div class="moral-card type-selfish">
-                    <div class="card-ring ring-selfish"></div>
-                    <div class="card-icon"><i class="fa-solid fa-user"></i></div>
-                    <h3>Self-focused</h3>
-                    <p>Cares only about personal survival. Reproduces (r-selection) but invests no further in offspring. Every other agent is instrumental.</p>
-                    <div class="dominates">— survives: social friction —</div>
-                </div>
-                <div class="moral-card type-kin">
-                    <div class="card-ring ring-kin"></div>
-                    <div class="card-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3>Kin-focused</h3>
-                    <p>Extends moral concern to genetic relatives. Shares food and defends family; treats non-kin as outsiders. Inexpensive trust via kinship.</p>
-                    <div class="dominates">— dominates: baseline / opacity —</div>
-                </div>
-                <div class="moral-card type-reciprocal">
-                    <div class="card-ring ring-reciprocal"></div>
-                    <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <h3>Reciprocal group</h3>
-                    <p>Cares for anyone who empirically reciprocates. Builds trust-based clusters that span families; excludes free-riders.</p>
-                    <div class="dominates">— dominates: scarcity —</div>
-                </div>
-                <div class="moral-card type-universal">
-                    <div class="card-ring ring-universal"></div>
-                    <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
-                    <h3>Universal group</h3>
-                    <p>Extends prosocial behavior to everyone, unconditionally. Broad but exploitable — thrives only when reciprocity machinery is too expensive to run.</p>
-                    <div class="dominates">— dominates: high friction —</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Framework -->
-    <section class="section framework-section reveal" id="framework">
-        <div class="container">
-            <h2 class="section-title">The Framework</h2>
-            <p class="section-subtitle">A morality-driven cognitive architecture (<code>SoMa</code>) embedded in a hunter-gatherer world (<code>Social-Evol-HunT</code>).</p>
-
-            <figure class="figure-card">
-                <img src="public/assets/the_method@2x.png" alt="SoMa agent architecture and simulation pipeline">
+        <div class="validation-grid">
+            <figure class="small">
+                <img src="public/assets/mean_std_confusion_matrix.png" alt="Mean confusion matrix for behaviour-based moral type inference">
                 <figcaption>
-                    <strong>Figure 1.</strong> Each agent pairs a <em>moral value module</em> (one of four dispositions) with a perception module and entity-oriented cognitive modules that update memory, form judgments, and plan actions consistent with its moral type. A reflection step verifies consistency with observed facts before actions execute. The environment then resolves outcomes and emits the next observation cycle.
+                    Confusion matrix (mean over 8 runs) for behaviour-based inference of agent moral type. Diagonal accuracy 0.89 &plusmn; 0.03&mdash;moral dispositions produce distinctive, recoverable behaviour.
                 </figcaption>
             </figure>
 
-            <div class="grid-2 framework-grid">
-                <div class="info-card">
-                    <h3><i class="fa-solid fa-brain"></i> Agent (<code>SoMa</code>)</h3>
-                    <ul>
-                        <li><strong>Moral module.</strong> Dispositional weights over concentric circles of concern.</li>
-                        <li><strong>Perception.</strong> Recent HP, positions, and activities of visible entities.</li>
-                        <li><strong>Entity-oriented cognition.</strong> Per-entity memory, judgment, and disposition — not event logs.</li>
-                        <li><strong>Action planning &amp; reflection.</strong> Resolves conflicting intentions; verifies plans against facts and moral type.</li>
-                    </ul>
+            <figure class="small">
+                <div class="ablation-chart" aria-label="Ablation: diagonal accuracy drops when cognitive modules are removed">
+                    <div class="ab-title">Diagonal accuracy by cognitive configuration</div>
+
+                    <div class="ab-row" data-role="full">
+                        <span class="ab-label">Full MoRE</span>
+                        <div class="ab-bar" style="--v: 0.89"><span class="ab-fill"></span></div>
+                        <span class="ab-value">0.89</span>
+                    </div>
+                    <div class="ab-row">
+                        <span class="ab-label">&minus; single module</span>
+                        <div class="ab-bar" data-range="true" style="--v-lo: 0.72; --v-hi: 0.85"><span class="ab-fill"></span></div>
+                        <span class="ab-value">0.72&ndash;0.85</span>
+                    </div>
+                    <div class="ab-row" data-role="min">
+                        <span class="ab-label">No modules</span>
+                        <div class="ab-bar" style="--v: 0.67"><span class="ab-fill"></span></div>
+                        <span class="ab-value">0.67</span>
+                    </div>
+
+                    <div class="ab-axis">
+                        <span>0</span>
+                        <span>0.5</span>
+                        <span>1.0</span>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <h3><i class="fa-solid fa-mountain-sun"></i> Environment (<code>Social-Evol-HunT</code>)</h3>
-                    <ul>
-                        <li><strong>Survival.</strong> HP decays over time and injury; death at HP = 0 or maximum lifespan.</li>
-                        <li><strong>Production.</strong> Plants (low risk, low reward) vs. animals (high risk, high reward — failed hunts counter-attack).</li>
-                        <li><strong>Reproduction.</strong> Requires age and HP thresholds; newborns are fragile and usually need parental investment.</li>
-                        <li><strong>Social actions.</strong> <code>allocate</code>, <code>communicate</code>, <code>rob</code>, <code>fight</code> — no built-in punishment for antisocial behavior.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Validation -->
-    <section class="section validation-section reveal" id="validation">
-        <div class="container">
-            <h2 class="section-title">Do the Agents Actually Act Moral?</h2>
-            <p class="section-subtitle">Before ablating what shapes evolution, we verify that moral dispositions produce distinctive, recoverable behavior.</p>
-
-            <div class="grid-2 validation-grid">
-                <figure class="figure-card">
-                    <img src="public/assets/mean_std_confusion_matrix@2x.png" alt="Soft confusion matrix of moral-type predictions">
-                    <figcaption>
-                        <strong>Fig 2a.</strong> A held-out classifier reads only trajectory traces and tries to infer each agent's moral type. Diagonal mass <strong>0.86–0.91</strong> across all four types, standard deviations under 0.02 across three runs — behavior recovers moral type reliably.
-                    </figcaption>
-                </figure>
-
-                <figure class="figure-card">
-                    <img src="public/assets/action_distribution_across_cases@2x.png" alt="Action distribution across test cases">
-                    <figcaption>
-                        <strong>Fig 2b.</strong> Action mix differs sharply by moral type: <em>Selfish</em> agents rob and fight disproportionately often; <em>Universal</em> and <em>Reciprocal</em> agents communicate and allocate HP far more than the rest. Signatures emerge from cognition alone — no behavioral priors are imposed.
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Results -->
-    <section class="section results-section reveal" id="results">
-        <div class="container">
-            <h2 class="section-title">Who Wins Depends on the World</h2>
-            <p class="section-subtitle">Four controlled environments. Four different evolutionary outcomes — from the same starting population.</p>
-
-            <figure class="figure-card wide">
-                <img src="public/assets/population_grid_4panel.png" alt="Population dynamics across four experimental conditions">
                 <figcaption>
-                    <strong>Figure 3.</strong> Population-share trajectories across the four ablation conditions. Stacked areas show the percentage of each moral type over time; overlaid curves track absolute agent counts.
+                    Stripping cognitive modules degrades behaviour&ndash;morality alignment. Largest single-module drop comes from removing long-term memory; zero modules reduces alignment to 0.67, close to reasoning-only LLM baselines.
                 </figcaption>
             </figure>
-
-            <div class="grid-2 results-grid">
-                <div class="result-card">
-                    <div class="result-tag tag-kin">A · Baseline</div>
-                    <h3>Kin-focused dominates when the world is forgiving.</h3>
-                    <p>With abundant food and cheap communication, there is no need to negotiate cooperation with strangers. Kin groups reproduce quickly and provision each other through cheap in-group trust. Broader moral circles pay a coordination tax they don't need.</p>
-                </div>
-
-                <div class="result-card">
-                    <div class="result-tag tag-reciprocal">B · Resource Scarcity</div>
-                    <h3>Reciprocal beats kin when every HP is contested.</h3>
-                    <p>Selfish agents surge early by monopolizing resources, but collapse without a cooperative buffer. Kin-focused lineages cannot sustain reproduction under pressure. <em>Conditional</em> cooperation — share the gains, exclude free-riders — is the most robust strategy (3/4 replicates).</p>
-                </div>
-
-                <div class="result-card">
-                    <div class="result-tag tag-universal">C · Social Interaction Cost</div>
-                    <h3>Universal wins when talk is too expensive.</h3>
-                    <p>With only one communication round before production, reciprocal agents can't set up the trust-verification cycle their strategy requires. Unconditional cooperators default to contributing anyway, absorbing some exploitation but coordinating large-group hunts that no one else can pull off (2/4 replicates).</p>
-                </div>
-
-                <div class="result-card">
-                    <div class="result-tag tag-opacity">D · Moral Type Opacity</div>
-                    <h3>Reciprocal dies when intent is invisible.</h3>
-                    <p>When agents must <em>infer</em> moral types from behavior, a retaliating reciprocal looks indistinguishable from a selfish aggressor — and gets preemptively attacked. Misattribution cascades turn potential allies into enemies. Only kin-focused (who use kinship as a shortcut) and universal (who never retaliate) survive.</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Takeaways -->
-    <section class="section takeaways-section reveal" id="takeaways">
-        <div class="container">
-            <h2 class="section-title">Why This Matters</h2>
+    <!-- ─── Implications ────────────────────────────────────── -->
+    <section id="implications">
+        <h2>A new research paradigm</h2>
 
-            <div class="grid-3 takeaway-grid">
-                <div class="takeaway-card">
-                    <div class="takeaway-num">01</div>
-                    <h3>Expanding-circle morality is empirically grounded, not just philosophical.</h3>
-                    <p>Broader, self-consistent moral circles generally produce better evolutionary outcomes — but only when the world lets them. The theoretical framework meets computational evidence.</p>
-                </div>
+        <!-- Paradigm-shift diagram: two axes — agent cognition and environment richness -->
+        <div class="paradigm-shift" aria-label="Paradigm shift: two axes — cognition and environmental realism">
+            <svg viewBox="0 0 720 320" role="img" aria-hidden="true">
+                <!-- Row guides (axis labels) -->
+                <g font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#8a8a8a" letter-spacing="0.5">
+                    <text x="6" y="98" text-anchor="start">AGENTS</text>
+                    <text x="6" y="228" text-anchor="start">ENVIRONMENT</text>
+                </g>
+                <line x1="0" y1="172" x2="720" y2="172" stroke="#e7e3d9" stroke-width="1"/>
 
-                <div class="takeaway-card">
-                    <div class="takeaway-num">02</div>
-                    <h3>Cognition is a first-class variable in moral evolution.</h3>
-                    <p>The ability to <em>identify</em> another agent's moral orientation matters as much as environmental pressure. A reliable in-group signal — kinship, reputation, marker — is often what lets cooperation scale.</p>
-                </div>
+                <!-- Panel titles -->
+                <text x="140" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a" letter-spacing="0.4">TRADITIONAL</text>
+                <text x="580" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#6b1d1d" letter-spacing="0.4">OUR PARADIGM</text>
 
-                <div class="takeaway-card">
-                    <div class="takeaway-num">03</div>
-                    <h3>A general platform for computational social evolution.</h3>
-                    <p><code>SoMa</code> + <code>Social-Evol-HunT</code> generalize beyond morality — to norm emergence, reputation systems, inter-group dynamics, and beyond. The framework is open-source.</p>
-                </div>
-            </div>
+                <!-- ════════════════ AGENT ROW ════════════════ -->
+
+                <!-- Traditional agents: two simple circles -->
+                <g>
+                    <circle cx="90"  cy="98" r="22" fill="#ece7db" stroke="#8a8a8a" stroke-width="1"/>
+                    <text x="90"  y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#5a5a5a">A</text>
+
+                    <circle cx="190" cy="98" r="22" fill="#ece7db" stroke="#8a8a8a" stroke-width="1"/>
+                    <text x="190" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#5a5a5a">B</text>
+
+                    <text x="140" y="150" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#8a8a8a">fixed rules · no cognition</text>
+                </g>
+
+                <!-- Our agent: cognitive MoRE circle -->
+                <g>
+                    <circle cx="580" cy="98" r="52" fill="#fbf9f5" stroke="#6b1d1d" stroke-width="1.6"/>
+                    <circle cx="580" cy="98" r="18" fill="none" stroke="#6b1d1d" stroke-width="1" stroke-dasharray="2 2"/>
+                    <text x="580" y="96"  text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="700" fill="#6b1d1d">Moral</text>
+                    <text x="580" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="700" fill="#6b1d1d">Value</text>
+
+                    <g font-family="Inter, sans-serif" font-size="9" fill="#1a1a1a" font-weight="500">
+                        <text x="580" y="58"  text-anchor="middle">Perceive</text>
+                        <text x="632" y="90"  text-anchor="start">Memory</text>
+                        <text x="632" y="108" text-anchor="start">Reason</text>
+                        <text x="580" y="144" text-anchor="middle">Reflect · Act</text>
+                        <text x="528" y="108" text-anchor="end">Value</text>
+                        <text x="528" y="90"  text-anchor="end">Plan</text>
+                    </g>
+
+                    <text x="580" y="162" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#6b1d1d">cognition: first-class variable</text>
+                </g>
+
+                <!-- Agent-row arrow (only one arrow in middle, spans both rows) -->
+                <g>
+                    <line x1="250" y1="165" x2="460" y2="165" stroke="#6b1d1d" stroke-width="1.8"/>
+                    <polygon points="452,159 462,165 452,171" fill="#6b1d1d"/>
+                    <text x="355" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#6b1d1d" letter-spacing="0.5">SHIFT</text>
+                </g>
+
+                <!-- ════════════════ ENVIRONMENT ROW ════════════════ -->
+
+                <!-- Traditional environment: 2x2 payoff matrix -->
+                <g>
+                    <g stroke="#8a8a8a" stroke-width="0.9" fill="none">
+                        <rect x="108" y="206" width="64" height="50"/>
+                        <line x1="108" y1="231" x2="172" y2="231"/>
+                        <line x1="140" y1="206" x2="140" y2="256"/>
+                    </g>
+                    <g font-family="Inter, sans-serif" font-size="9" fill="#5a5a5a">
+                        <text x="124" y="224" text-anchor="middle">C,C</text>
+                        <text x="156" y="224" text-anchor="middle">C,D</text>
+                        <text x="124" y="248" text-anchor="middle">D,C</text>
+                        <text x="156" y="248" text-anchor="middle">D,D</text>
+                    </g>
+                    <text x="140" y="283" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#8a8a8a">2&times;2 payoff matrix</text>
+                    <text x="140" y="299" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#8a8a8a">abstract game</text>
+                </g>
+
+                <!-- Our environment: rich hunter-gatherer ecology -->
+                <g>
+                    <!-- ground line -->
+                    <line x1="470" y1="256" x2="714" y2="256" stroke="#b98b8b" stroke-width="1"/>
+
+                    <!-- plant (low-risk resource) -->
+                    <g transform="translate(484, 232)" stroke="#3d7068" stroke-width="1.2" fill="none">
+                        <path d="M8 22 C3 17, 3 10, 8 6 C13 10, 13 17, 8 22 Z" stroke-linejoin="round"/>
+                        <line x1="8" y1="22" x2="8" y2="26"/>
+                    </g>
+                    <text x="492" y="274" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#5a5a5a">plants</text>
+
+                    <!-- prey (high-risk resource) -->
+                    <g transform="translate(518, 236)" stroke="#8d6a2b" stroke-width="1.2" fill="none">
+                        <ellipse cx="10" cy="12" rx="10" ry="6"/>
+                        <line x1="4" y1="16" x2="3" y2="20"/>
+                        <line x1="10" y1="17" x2="10" y2="20"/>
+                        <line x1="16" y1="16" x2="17" y2="20"/>
+                    </g>
+                    <text x="528" y="274" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#5a5a5a">prey</text>
+
+                    <!-- other agents (social world) -->
+                    <g>
+                        <circle cx="566" cy="242" r="7" fill="#3d7068" opacity="0.8"/>
+                        <circle cx="584" cy="242" r="7" fill="#8d6a2b" opacity="0.8"/>
+                        <circle cx="602" cy="242" r="7" fill="#8a3b3b" opacity="0.8"/>
+                        <line x1="566" y1="249" x2="566" y2="256" stroke="#8a8a8a" stroke-width="0.8"/>
+                        <line x1="584" y1="249" x2="584" y2="256" stroke="#8a8a8a" stroke-width="0.8"/>
+                        <line x1="602" y1="249" x2="602" y2="256" stroke="#8a8a8a" stroke-width="0.8"/>
+                    </g>
+                    <text x="584" y="274" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#5a5a5a">other agents</text>
+
+                    <!-- resource allocation / sharing -->
+                    <g transform="translate(628, 236)" stroke="#6b1d1d" stroke-width="1.2" fill="none">
+                        <circle cx="4" cy="10" r="3"/>
+                        <circle cx="20" cy="10" r="3"/>
+                        <line x1="7" y1="10" x2="17" y2="10"/>
+                        <polyline points="15,8 17,10 15,12"/>
+                    </g>
+                    <text x="640" y="274" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#5a5a5a">share · fight</text>
+
+                    <!-- reproduction -->
+                    <g transform="translate(688, 232)" stroke="#6b1d1d" stroke-width="1.2" fill="none">
+                        <path d="M10 22 L4 14 Q2 10 5 8 Q8 6 10 10 Q12 6 15 8 Q18 10 16 14 Z" stroke-linejoin="round"/>
+                    </g>
+                    <text x="696" y="274" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#5a5a5a">reproduce</text>
+
+                    <text x="580" y="299" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="10" fill="#6b1d1d">hunter-gatherer ecology</text>
+                </g>
+            </svg>
         </div>
+
+        <p>Traditional studies of moral evolution must abstract away cognition. Our paradigm relaxes this assumption and exposes mechanisms&mdash;like self-purging and the cost of moral judgment&mdash;that are inaccessible to fixed-strategy models. Cognitive factors become first-class experimental variables, and action-level resolution lets us trace <em>why</em> a moral type fails by examining individual agents' reasoning.</p>
+
+        <p>The framework also generalises beyond morality. By defining different prompt templates, researchers can study cultural backgrounds, religions, political views, or custom social norms within the same hunter-gatherer engine. We hope this paradigm inspires broader and deeper investigations into moral and social evolution.</p>
     </section>
 
-    <!-- Citation -->
-    <section class="section citation-section reveal" id="paper">
-        <div class="container">
-            <h2 class="section-title">Cite</h2>
-            <div class="code-block">
-                <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
-<pre><code>@inproceedings{zhou2026moral,
-    title={Investigating Moral Evolution via LLM-based Agent Simulation},
-    author={Zhou, Ziheng and Tang, Huacong and Bi, Mingjie and Kang, Yipeng
-            and He, Wanying and Sun, Fang and Sun, Yizhou and Wu, Ying Nian
-            and Terzopoulos, Demetri and Zhong, Fangwei},
-    booktitle={Proceedings of the 64th Annual Meeting of the Association
+    <!-- ─── Citation ────────────────────────────────────────── -->
+    <section id="bibtex">
+        <h2>Citation</h2>
+        <pre class="bibtex"><code>@inproceedings{zhou2026moral,
+  title     = {Why Are We Moral? An {LLM}-based Agent Simulation Approach
+               to Study Moral Evolution},
+  author    = {Zhou, Ziheng and Tang, Huacong and Bi, Mingjie and Kang, Yipeng
+               and He, Wanying and Sun, Fang and Sun, Yizhou and Wu, Ying Nian
+               and Terzopoulos, Demetri and Zhong, Fangwei},
+  booktitle = {Proceedings of the Annual Meeting of the Association
                for Computational Linguistics (ACL)},
-    year={2026}
+  year      = {2026}
 }</code></pre>
-            </div>
-
-            <div class="links-row">
-                <a href="https://github.com/MoralAgentSim/social-evol-sim" class="link-pill" target="_blank"><i class="fa-brands fa-github"></i> social-evol-sim</a>
-                <a href="https://github.com/MoralAgentSim/MoralAgentSim.github.io" class="link-pill" target="_blank"><i class="fa-brands fa-github"></i> Project page source</a>
-                <a href="https://github.com/MoralAgentSim" class="link-pill" target="_blank"><i class="fa-solid fa-building"></i> MoralAgentSim org</a>
-                <a href="https://openreview.net/forum?id=jjvwT6ZCeP" class="link-pill" target="_blank"><i class="fa-solid fa-comments"></i> OpenReview</a>
-            </div>
-        </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 UCLA · BIGAI · BNU. Accepted at ACL 2026 Main Conference.</p>
-        </div>
+        <p>Correspondence: <a href="mailto:josephziheng@ucla.edu">josephziheng@ucla.edu</a> &middot; <a href="mailto:fangweizhong@bnu.edu.cn">fangweizhong@bnu.edu.cn</a></p>
+        <p class="footer-links"><a href="https://github.com/MoralAgentSim/social-evol-sim" target="_blank" rel="noopener">Code</a> &middot; <a href="https://github.com/MoralAgentSim" target="_blank" rel="noopener">MoralAgentSim org</a> &middot; <a href="https://github.com/MoralAgentSim/MoralAgentSim.github.io" target="_blank" rel="noopener">Page source</a></p>
     </footer>
 
-    <script src="app.js"></script>
+</main>
+
+<script src="app.js"></script>
 </body>
 </html>
