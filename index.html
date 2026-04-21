@@ -66,18 +66,10 @@
         <p>The evolution of morality presents a puzzle: natural selection should favor self-interest, yet humans developed moral systems promoting altruism. Traditional approaches must abstract away cognitive processes, leaving open <em>how cognitive factors shape moral evolution</em>. We introduce an LLM-based agent simulation framework that brings <strong>cognitive realism</strong> to this question: agents with varying moral dispositions perceive, remember, reason, and decide in a simulated prehistoric hunter-gatherer society. This enables us to manipulate factors that traditional models cannot represent&mdash;such as moral type observability and communication bandwidth&mdash;and to discover emergent cognitive mechanisms from agent interactions. Across 20 runs spanning four settings, we find that <strong>cooperation and mutual help are the central drivers of survival</strong>, with universal and reciprocal morality exhibiting the most stable evolutionary outcomes across conditions while selfishness is strongly disfavoured. We also observe two central mechanisms that emerge from cognition, including a <em>cost of moral judgment</em> and a <em>self-purging effect</em> among selfish agents. We validate robustness across multiple LLM backbones, architecture ablations, and prompt-sensitivity analyses. This work establishes LLM-based simulation as a powerful new paradigm to complement traditional research in evolutionary biology and anthropology.</p>
     </section>
 
-    <!-- ─── Motivation ────────────────────────────────────────── -->
+    <!-- ─── Why cognitive realism? ───────────────────────────── -->
     <section id="motivation">
         <h2>Why cognitive realism?</h2>
-        <p>Prior approaches to moral evolution&mdash;evolutionary game theory, agent-based models, anthropological fieldwork&mdash;share a fundamental limitation. They must <em>abstract away</em> the cognitive processes that underlie moral behaviour, encoding agent strategies as fixed rules or payoff matrices. This prevents investigation of how cognitive factors&mdash;memory of past interactions, the ability to identify others' moral dispositions, communication bandwidth, reasoning under uncertainty&mdash;interact with environmental pressures to shape moral evolution.</p>
-
-        <p>LLM-based agent simulation changes what is possible. Agents with values, memory, perception, and reasoning generate emergent behaviours whose trajectories we can observe under controlled conditions. For the first time, cognition becomes a <em>first-class experimental variable</em> in the study of moral evolution.</p>
-    </section>
-
-    <!-- ─── A new research paradigm ──────────────────────────── -->
-    <section id="paradigm">
-        <h2>A new research paradigm</h2>
-        <p>Prior work on moral evolution makes two simplifications: agents are reduced to fixed strategies, and the world is reduced to a payoff matrix. We relax both. Agents become cognitive&mdash;they perceive, remember, reason, and reflect&mdash;and the world becomes a prehistoric hunter-gatherer ecology with plants, prey, social coalitions, conflict, and reproduction. Cognition and environment shift from hidden modelling assumptions to <em>first-class experimental variables</em>.</p>
+        <p>Prior approaches to moral evolution&mdash;evolutionary game theory, agent-based models, anthropological fieldwork&mdash;share two simplifications. Agents are reduced to fixed strategies or payoff entries, and the world is reduced to an abstract game. This prevents investigation of how cognitive factors (memory of past interactions, the ability to identify others' moral dispositions, communication bandwidth, reasoning under uncertainty) and richer environmental pressures together shape moral evolution.</p>
 
         <!-- Paradigm-shift diagram: two axes — agent cognition and environment richness -->
         <div class="paradigm-shift" aria-label="Paradigm shift: two axes — cognition and environmental realism">
@@ -203,7 +195,7 @@
             </svg>
         </div>
 
-        <p>With cognition and environment both opened up, the simulation can expose mechanisms&mdash;like self-purging and the cost of moral judgment&mdash;that are inaccessible to fixed-strategy models. Action-level resolution also lets us trace <em>why</em> a moral type fails by examining individual agents' reasoning. The next section describes the specific agent architecture and environment that implement this paradigm.</p>
+        <p>LLM-based agent simulation relaxes both simplifications. Agents become cognitive&mdash;they perceive, remember, reason, and reflect under a moral value&mdash;and the world becomes a prehistoric hunter-gatherer ecology with plants, prey, social coalitions, conflict, and reproduction. Cognition and environment shift from hidden modelling assumptions to <em>first-class experimental variables</em>. This opens up mechanisms like self-purging and the cost of moral judgment that are inaccessible to fixed-strategy models, and action-level resolution lets us trace <em>why</em> a moral type fails by examining individual agents' reasoning.</p>
     </section>
 
     <!-- ─── Framework ─────────────────────────────────────────── -->
