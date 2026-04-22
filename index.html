@@ -63,7 +63,32 @@
     <!-- ─── Abstract ──────────────────────────────────────────── -->
     <section id="abstract">
         <h2>Abstract</h2>
-        <p>The evolution of morality presents a puzzle: natural selection should favor self-interest, yet humans developed moral systems promoting altruism. Traditional approaches must abstract away cognitive processes, leaving open <em>how cognitive factors shape moral evolution</em>. We introduce an LLM-based agent simulation framework that brings <strong>cognitive realism</strong> to this question: agents with varying moral dispositions perceive, remember, reason, and decide in a simulated prehistoric hunter-gatherer society. This enables us to manipulate factors that traditional models cannot represent&mdash;such as moral type observability and communication bandwidth&mdash;and to discover emergent cognitive mechanisms from agent interactions. Across 20 runs spanning four settings, we find that <strong>cooperation and mutual help are the central drivers of survival</strong>, with universal and reciprocal morality exhibiting the most stable evolutionary outcomes across conditions while selfishness is strongly disfavoured. We also observe two central mechanisms that emerge from cognition, including a <em>cost of moral judgment</em> and a <em>self-purging effect</em> among selfish agents. We validate robustness across multiple LLM backbones, architecture ablations, and prompt-sensitivity analyses. This work establishes LLM-based simulation as a powerful new paradigm to complement traditional research in evolutionary biology and anthropology.</p>
+        <p>The evolution of morality presents a puzzle: natural selection should favor self-interest, yet humans developed moral systems promoting altruism. Traditional approaches must abstract away cognitive processes, leaving open <em>how cognitive factors shape moral evolution</em>. We introduce an LLM-based agent simulation framework that brings <strong>cognitive realism</strong> to this question: agents with varying moral dispositions perceive, remember, reason, and decide in a simulated prehistoric hunter-gatherer society. This enables us to manipulate factors that traditional models cannot represent&mdash;such as moral type observability and communication bandwidth&mdash;and to discover emergent cognitive mechanisms from agent interactions. Across 20 runs spanning four settings, we find that <strong>cooperation and mutual help are the central driver of evolutionary survival</strong>, with universal and reciprocal morality exhibiting the most stable outcomes across conditions while selfishness is strongly disfavoured. Beyond cooperation itself, we further identify <strong>cognition as a central mediator</strong>&mdash;most clearly through a <em>cost of moral judgment</em> that shifts the winning moral type across settings, with a <em>self-purging effect</em> among selfish agents as an additional cognitive pattern. We validate robustness across multiple LLM backbones, architecture ablations, and prompt-sensitivity analyses. This work establishes LLM-based simulation as a powerful new paradigm to complement traditional research in evolutionary biology and anthropology.</p>
+    </section>
+
+    <!-- ─── The Paradox (visual opener) ──────────────────────── -->
+    <section id="paradox" class="paradox-section">
+        <h2>The paradox</h2>
+        <div class="paradox-grid">
+            <div class="paradox-panel paradox-tension">
+                <span class="paradox-tag">Natural selection says&hellip;</span>
+                <p class="paradox-line">Survival favours the self-interested.</p>
+                <p class="paradox-sub">Every calorie, every risk, every act of help has a cost. A rational strategy should hoard, defect, and free-ride.</p>
+            </div>
+            <div class="paradox-bridge" aria-hidden="true">
+                <svg viewBox="0 0 40 160" role="img">
+                    <line x1="20" y1="6" x2="20" y2="154" stroke="#6b1d1d" stroke-width="1.2"/>
+                    <polyline points="14,148 20,154 26,148" fill="none" stroke="#6b1d1d" stroke-width="1.2"/>
+                    <text x="20" y="86" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="11" fill="#6b1d1d" transform="rotate(-90 20 86)">yet</text>
+                </svg>
+            </div>
+            <div class="paradox-panel paradox-resolution">
+                <span class="paradox-tag">But humans do this&hellip;</span>
+                <p class="paradox-line">We feed strangers. We punish cheaters at personal cost. We mourn the unknown dead.</p>
+                <p class="paradox-sub">Moral systems promoting altruism, reciprocity, and universal concern are everywhere&mdash;across cultures, across millennia.</p>
+            </div>
+        </div>
+        <p class="paradox-hook">Why? What kind of process could produce morality out of a game that rewards selfishness?</p>
     </section>
 
     <!-- ─── Why cognitive realism? ───────────────────────────── -->
@@ -356,19 +381,19 @@
             <div class="legend">
                 <div class="legend-item">
                     <span class="swatch" style="background:var(--sel)"></span>
-                    <span><span class="label">Selfish.</span> <span class="desc">Personal survival only; others are instrumental.</span></span>
+                    <span><span class="label">Selfish.</span> <span class="desc">Personal survival only; others are instrumental.</span><span class="motto">&ldquo;Only I matter.&rdquo;</span></span>
                 </div>
                 <div class="legend-item">
                     <span class="swatch" style="background:var(--kin)"></span>
-                    <span><span class="label">Kin-focused.</span> <span class="desc">Extends concern to genetic relatives; non-kin are outsiders.</span></span>
+                    <span><span class="label">Kin-focused.</span> <span class="desc">Extends concern to genetic relatives; non-kin are outsiders.</span><span class="motto">&ldquo;Blood is thicker than water.&rdquo;</span></span>
                 </div>
                 <div class="legend-item">
                     <span class="swatch" style="background:var(--rec)"></span>
-                    <span><span class="label">Reciprocal.</span> <span class="desc">Cares for anyone who reciprocates; excludes free-riders.</span></span>
+                    <span><span class="label">Reciprocal.</span> <span class="desc">Cares for anyone who reciprocates; excludes free-riders.</span><span class="motto">&ldquo;I&rsquo;ll help those who help me.&rdquo;</span></span>
                 </div>
                 <div class="legend-item">
                     <span class="swatch" style="background:var(--uni)"></span>
-                    <span><span class="label">Universal.</span> <span class="desc">Prosocial behaviour extended to everyone, unconditionally.</span></span>
+                    <span><span class="label">Universal.</span> <span class="desc">Prosocial behaviour extended to everyone, unconditionally.</span><span class="motto">&ldquo;Every life has equal worth.&rdquo;</span></span>
                 </div>
             </div>
         </div>
@@ -391,7 +416,7 @@
             </svg>
             <div>
                 <strong>Cooperation is the central driver of evolutionary survival.</strong>
-                Across all four experimental settings, cooperative moral types dominate: universal and reciprocal morality exhibit the most stable outcomes across conditions, while selfishness is strongly disfavoured&mdash;surviving in no setting and eliminated in every run when moral types are invisible.
+                Across all four experimental settings, cooperative moral types dominate: universal and reciprocal morality exhibit the most stable outcomes across conditions, while selfishness is strongly disfavoured&mdash;winning in no setting and eliminated in every run when moral types are invisible.
             </div>
         </div>
 
@@ -408,17 +433,55 @@
                 <circle cx="34" cy="30" r="1.2" fill="currentColor"/>
             </svg>
             <div>
-                <strong>Cognition is a decisive mediator.</strong>
-                Whether a cooperative strategy thrives or collapses is not determined by the moral value alone: it is shaped by how agents <em>perceive, remember, judge, and communicate</em>, too. Cognitive factors&mdash;the cost of judgment, type inference, same-type recognition, communication bandwidth&mdash;also decide <em>which</em> cooperative strategies survive under which environmental pressures.
+                <strong>Cognition is a central mediator.</strong>
+                Beyond cooperation itself, <em>which</em> cooperative strategy wins shifts with how hard it is to judge others. Reciprocal agents lead when types are visible and bandwidth is rich; universal agents lead precisely when judgment becomes costly. This <em>cost of moral judgment</em> is the clearest cognitive effect; the <em>self-purging</em> of selfish agents observed under scarcity is an additional cognitive pattern. Neither is expressible in fixed-strategy models.
             </div>
         </div>
 
-        <figure>
-            <img src="public/assets/population_grid_4panel.png" alt="Population dynamics across four settings">
-            <figcaption>
-                Population dynamics across four experimental settings. Each panel shows a representative run in which the most frequently surviving moral type in that setting persists to the end. Outcomes vary across replicates; aggregate survival counts over 20 runs are reported in the paper.
-            </figcaption>
-        </figure>
+        <div class="scenario-tabs" data-tab-group="population">
+            <div class="tab-strip" role="tablist" aria-label="Population dynamics by setting">
+                <button class="tab-btn is-active" role="tab" data-tab="overview">Overview</button>
+                <button class="tab-btn" role="tab" data-tab="baseline">Baseline</button>
+                <button class="tab-btn" role="tab" data-tab="scarce">Scarce Resource</button>
+                <button class="tab-btn" role="tab" data-tab="social">High Social Cost</button>
+                <button class="tab-btn" role="tab" data-tab="invisible">Type Invisible</button>
+            </div>
+
+            <figure class="tab-panel is-active" data-panel="overview">
+                <img src="public/assets/population_grid_4panel.png" alt="Population dynamics across four settings">
+                <figcaption>
+                    Population dynamics across four experimental settings. Each panel shows a representative run in which the most frequently surviving moral type in that setting persists to the end. Outcomes vary across replicates; aggregate survival counts over 20 runs are reported in the paper.
+                </figcaption>
+            </figure>
+
+            <figure class="tab-panel" data-panel="baseline">
+                <img src="public/assets/population_Major_baseline.png" alt="Baseline population dynamics">
+                <figcaption>
+                    <strong>Baseline.</strong> Abundant resources, observable moral types, rich social rounds. Kin-focused lineages grow self-sustaining through internal family cooperation; universal agents also survive frequently.
+                </figcaption>
+            </figure>
+
+            <figure class="tab-panel" data-panel="scarce">
+                <img src="public/assets/population_Scarce_resource.png" alt="Scarce resource population dynamics">
+                <figcaption>
+                    <strong>Scarce Resource.</strong> Reciprocal agents dominate via conditional cooperation&mdash;forming coalitions while excluding free-riders. This is also where the <em>self-purging</em> pattern surfaces.
+                </figcaption>
+            </figure>
+
+            <figure class="tab-panel" data-panel="social">
+                <img src="public/assets/population_Social_Interaction_Cost.png" alt="High social cost population dynamics">
+                <figcaption>
+                    <strong>High Social Cost.</strong> One communication round. Kin-focused agents cannot confirm teaming signals and drop out; universal and reciprocal agents form effective coalitions.
+                </figcaption>
+            </figure>
+
+            <figure class="tab-panel" data-panel="invisible">
+                <img src="public/assets/population_Moral_Type_Observability.png" alt="Moral type invisible population dynamics">
+                <figcaption>
+                    <strong>Moral Type Invisible.</strong> When type labels are hidden, universal agents survive in every run&mdash;their unconditional cooperation is never misread. Selfish agents are exposed through aggression and eliminated.
+                </figcaption>
+            </figure>
+        </div>
 
         <h3>Four settings, four evolutionary outcomes</h3>
 
@@ -483,7 +546,7 @@
                 <h4><span class="winner-dot"></span>Scarce Resource</h4>
                 <span class="counts">Reciprocal 3/4 &middot; Universal 2/4</span>
             </div>
-            <p>Under reduced resource abundance, agents selectively avoid less cooperative partners. Reciprocal's conditional cooperation ensures fair resource sharing within coalitions while excluding free-riders. Notably, selfish agents self-destruct: recognising same-type peers as direct competitors for scarce resources, they preemptively attack one another and fail to form coalitions.</p>
+            <p>Under reduced resource abundance, agents selectively avoid less cooperative partners. Reciprocal's conditional cooperation ensures fair resource sharing within coalitions while excluding free-riders. Notably, we also observe the <em>self-purging</em> pattern here: selfish agents preemptively attack one another, reasoning that others&mdash;especially fellow selfish agents who will neither help them nor share&mdash;pose a life-and-death competitive threat. Universal agents, by contrast, do not perceive others as such threats and avoid this kind of aggression.</p>
         </div>
 
         <div class="setting" data-winner="rec">
@@ -505,53 +568,10 @@
 
     <!-- ─── Emergent mechanisms ──────────────────────────────── -->
     <section id="emergent">
-        <h2>Two mechanisms emerge from cognition</h2>
-        <p>Beyond the aggregate result, two mechanisms arise from cognition itself&mdash;neither is explicitly encoded, yet both decisively shape evolutionary outcomes and deepen our understanding of <em>why</em> cooperation prevails.</p>
+        <h2>What cognition adds to the story</h2>
+        <p>Two cognitive patterns emerge from the simulations&mdash;neither is explicitly encoded, yet both decisively shape evolutionary outcomes and deepen our understanding of <em>why</em> cooperation prevails. The first is the <strong>central mediator</strong> beyond cooperation itself; the second is an <strong>additional observation</strong> that helps explain why selfishness fails so completely.</p>
 
-        <!-- Mechanism I: self-purging -->
-        <div class="mechanism">
-            <div class="mech-visual" aria-hidden="true">
-                <svg viewBox="0 0 240 180" role="img">
-                    <defs>
-                        <marker id="sp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                            <path d="M0,0 L10,5 L0,10 z" fill="#8a3b3b"/>
-                        </marker>
-                    </defs>
-
-                    <!-- attack arrows between the three selfish agents -->
-                    <g stroke="#8a3b3b" stroke-width="1.3" fill="none" marker-end="url(#sp-arr)">
-                        <path d="M 72 52 Q 120 36 166 52"/>
-                        <path d="M 168 62 Q 120 78 74 62"/>
-                        <path d="M 150 70 Q 140 100 126 130"/>
-                        <path d="M 112 130 Q 98 100 90 72"/>
-                        <path d="M 78 70 Q 80 110 108 138"/>
-                    </g>
-
-                    <!-- 3 selfish agents (slate) arranged in a triangle -->
-                    <g>
-                        <circle cx="60" cy="52" r="16" fill="#5e626a" opacity="0.85"/>
-                        <text x="60" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
-                    </g>
-                    <g>
-                        <circle cx="180" cy="52" r="16" fill="#5e626a" opacity="0.85"/>
-                        <text x="180" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
-                    </g>
-                    <g>
-                        <circle cx="120" cy="138" r="16" fill="#5e626a" opacity="0.85"/>
-                        <text x="120" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
-                    </g>
-
-                    <!-- caption -->
-                    <text x="120" y="173" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="11" fill="#8a8a8a">same-type → perceived as competitor → preemptive attack</text>
-                </svg>
-            </div>
-            <div class="mech-text">
-                <h3>I. Self-purging of selfish agents</h3>
-                <p>Because cognitively realistic selfish agents reason about competitors, they recognise same-type peers as threats and preemptively attack them. Combined with exclusion by moral coalitions, selfishness fails not only from lacking cooperation but from actively generating internal conflict&mdash;a direct consequence of cognition applied to a selfish value system. Cooperation thus prevails through both its positive benefits <em>and</em> the self-destructive dynamics of its absence.</p>
-            </div>
-        </div>
-
-        <!-- Mechanism II: cost of moral judgment -->
+        <!-- Mechanism I: cost of moral judgment (central mediator) -->
         <div class="mechanism">
             <div class="mech-visual" aria-hidden="true">
                 <svg viewBox="0 0 260 180" role="img">
@@ -590,16 +610,88 @@
                 </svg>
             </div>
             <div class="mech-text">
-                <h3>II. Cost of moral judgment</h3>
-                <p>Assessing others' trustworthiness takes time under limited lifespans and carries the risk of misjudgment&mdash;wrongly excluding allies, or being wrongly excluded. Universal agents uniquely avoid this cost: they never produce behaviours that could be misread as hostile, so their reputation settles quickly. When judgment cost is high, a &ldquo;willing-to-take-a-loss&rdquo; strategy builds reputation faster and secures better cooperation&mdash;connecting to costly signalling and bounded rationality. This explains why universal morality is notably robust across challenging conditions, especially when moral types are invisible.</p>
+                <span class="mech-tag mech-tag-primary">Central Mediator</span>
+                <h3>I. The cost of moral judgment</h3>
+                <p>Assessing others' trustworthiness takes time under limited lifespans and carries the risk of misjudgment&mdash;wrongly excluding allies, or being wrongly excluded. Universal agents uniquely sidestep this cost: they never produce behaviours that could be misread, so their reputation settles quickly. When judgment cost is high, a &ldquo;willing-to-take-a-loss&rdquo; strategy therefore builds reputation faster and secures better cooperation&mdash;connecting to <em>costly signalling</em> and <em>bounded rationality</em> from neighbouring fields. This mediator explains why the winning cooperative strategy shifts across settings: reciprocal when types are visible, universal precisely when judgment becomes costly (Type Invisible, High Social Cost).</p>
             </div>
+        </div>
+
+        <!-- Mechanism II: self-purging (additional observation) -->
+        <div class="mechanism">
+            <div class="mech-visual" aria-hidden="true">
+                <svg viewBox="0 0 240 180" role="img">
+                    <defs>
+                        <marker id="sp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M0,0 L10,5 L0,10 z" fill="#8a3b3b"/>
+                        </marker>
+                    </defs>
+
+                    <!-- attack arrows between the three selfish agents -->
+                    <g stroke="#8a3b3b" stroke-width="1.3" fill="none" marker-end="url(#sp-arr)">
+                        <path d="M 72 52 Q 120 36 166 52"/>
+                        <path d="M 168 62 Q 120 78 74 62"/>
+                        <path d="M 150 70 Q 140 100 126 130"/>
+                        <path d="M 112 130 Q 98 100 90 72"/>
+                        <path d="M 78 70 Q 80 110 108 138"/>
+                    </g>
+
+                    <!-- 3 selfish agents (slate) arranged in a triangle -->
+                    <g>
+                        <circle cx="60" cy="52" r="16" fill="#5e626a" opacity="0.85"/>
+                        <text x="60" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
+                    </g>
+                    <g>
+                        <circle cx="180" cy="52" r="16" fill="#5e626a" opacity="0.85"/>
+                        <text x="180" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
+                    </g>
+                    <g>
+                        <circle cx="120" cy="138" r="16" fill="#5e626a" opacity="0.85"/>
+                        <text x="120" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#fff">S</text>
+                    </g>
+
+                    <!-- caption -->
+                    <text x="120" y="173" text-anchor="middle" font-family="EB Garamond, serif" font-style="italic" font-size="11" fill="#8a8a8a">life-and-death competition → preemptive attack</text>
+                </svg>
+            </div>
+            <div class="mech-text">
+                <span class="mech-tag mech-tag-secondary">Additional Observation &middot; Scarce Resource</span>
+                <h3>II. Self-purging of selfish agents</h3>
+                <p>In the Scarce Resource setting, selfish agents preemptively attack <em>one another</em>, reasoning that others&mdash;especially fellow selfish agents who will neither help them nor share resources&mdash;pose a life-and-death competitive threat. Universal agents, by contrast, do not perceive others as such threats and avoid this aggression. Self-purging is thus the natural strategic outcome of cognition applied to a selfish value system: the ability to assess others' cooperative intent becomes, for selfish agents, the ability to identify rivals worth preemptively eliminating. Selfishness fails through both its lack of positive benefits <em>and</em> this self-destructive dynamic.</p>
+            </div>
+        </div>
+
+        <div class="para-unlocks">
+            <p>Both patterns trace directly to relaxing the two simplifications of prior work: they require agents who <strong>form beliefs about one another, can misjudge, and act on those beliefs</strong> in a richer world&mdash;capabilities that payoff-matrix games cannot express. Action-level resolution further lets us trace <em>why</em> a type fails by examining individual agents' reasoning.</p>
         </div>
     </section>
 
     <!-- ─── Validation ───────────────────────────────────────── -->
     <section id="validation">
         <h2>Validation</h2>
-        <p>We validate the simulation along three axes. First, <strong>morality&ndash;behaviour consistency</strong>: an independent GPT-5 evaluator infers each agent's moral type from observed behaviour alone, achieving diagonal accuracy of <strong>0.89 &plusmn; 0.03</strong> averaged over 8 runs. Second, <strong>cross-LLM robustness</strong>: the baseline setting reproduces with Qwen-3.5 and Kimi-K2.5 beyond the primary GPT-5-mini backbone, with consistent alignment. Third, <strong>architecture ablation</strong>: removing any single cognitive module degrades behaviour&ndash;morality alignment (largest drop from removing long-term memory); stripping all modules reduces diagonal accuracy to 0.67, confirming each component contributes meaningfully beyond standard LLM reasoning. Prompt-sensitivity tests using two semantically equivalent rewrites show negligible variation (&le; 0.03).</p>
+        <p>We validate the simulation along four axes&mdash;summarised below, then detailed in the figures.</p>
+
+        <div class="robustness-grid">
+            <div class="robust-card">
+                <span class="robust-tag">Behaviour &harr; morality</span>
+                <div class="robust-stat">0.89 &plusmn; 0.03</div>
+                <p class="robust-note">Independent GPT-5 evaluator infers each agent's moral type from observed behaviour alone (diagonal accuracy, mean over 8 runs). Moral dispositions produce recoverable behaviour.</p>
+            </div>
+            <div class="robust-card">
+                <span class="robust-tag">Cross-model</span>
+                <div class="robust-stat">3 backbones</div>
+                <p class="robust-note">Baseline reproduces with <strong>Qwen-3.5</strong> and <strong>Kimi-K2.5</strong> beyond the primary <strong>GPT-5-mini</strong>&mdash;consistent alignment across LLM families.</p>
+            </div>
+            <div class="robust-card">
+                <span class="robust-tag">Architecture ablation</span>
+                <div class="robust-stat">0.89 &rarr; 0.67</div>
+                <p class="robust-note">Removing any single cognitive module degrades alignment (largest drop: long-term memory). Stripping all modules drops accuracy to <strong>0.67</strong>&mdash;each MoRE component contributes beyond standard LLM reasoning.</p>
+            </div>
+            <div class="robust-card">
+                <span class="robust-tag">Prompt sensitivity</span>
+                <div class="robust-stat">&le; 0.03</div>
+                <p class="robust-note">Two semantically equivalent rewrites of the moral-type prompts yield negligible variation&mdash;results do not hinge on specific wording.</p>
+            </div>
+        </div>
 
         <div class="validation-grid">
             <figure class="small">
@@ -640,6 +732,12 @@
                 </figcaption>
             </figure>
         </div>
+    </section>
+
+    <!-- ─── A common venue for isolated theories ─────────────── -->
+    <section id="theories">
+        <h2>A common venue for previously isolated theories</h2>
+        <p>The simulations also surface&mdash;without any prior encoding&mdash;a range of effects that are well established in <em>neighbouring fields</em> but have rarely been brought into the study of moral evolution: coordination costs under <strong>bounded rationality</strong> (economics), <strong>impression formation</strong> from observed behaviour (social psychology), <strong>costly signalling</strong>, <strong>altruistic punishment</strong>, <strong>life-history trade-offs</strong> in reproductive timing, and the anthropological sequence of kin-focused cooperation preceding <strong>expanded moral circles</strong> under environmental pressure. They emerge bottom-up from cognitive agent interactions rather than being built in as assumptions, offering a common venue in which these previously isolated mechanisms can jointly bear on moral evolution.</p>
     </section>
 
     <!-- ─── Beyond morality ─────────────────────────────────── -->

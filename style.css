@@ -478,6 +478,16 @@ figcaption {
     font-size: 0.9rem;
 }
 
+.circle-diagram .legend-item span.motto {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-top: 0.15rem;
+    opacity: 0.85;
+}
+
 @media (max-width: 680px) {
     .circle-diagram {
         grid-template-columns: 1fr;
@@ -705,11 +715,48 @@ figcaption {
 }
 
 .mechanism .mech-text h3 {
-    margin-top: 0;
+    margin-top: 0.35rem;
 }
 
 .mechanism .mech-text p {
     margin-bottom: 0;
+}
+
+.mech-tag {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+}
+
+.mech-tag-primary {
+    background: rgba(107, 29, 29, 0.08);
+    color: #6b1d1d;
+    border: 1px solid rgba(107, 29, 29, 0.22);
+}
+
+.mech-tag-secondary {
+    background: rgba(141, 106, 43, 0.10);
+    color: #8d6a2b;
+    border: 1px solid rgba(141, 106, 43, 0.25);
+}
+
+.para-unlocks {
+    background: rgba(107, 29, 29, 0.04);
+    border-left: 3px solid #6b1d1d;
+    padding: 1rem 1.3rem;
+    margin-top: 1.6rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.para-unlocks p {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.65;
 }
 
 @media (max-width: 680px) {
@@ -923,4 +970,219 @@ footer .footer-links {
 
     .setting-head { flex-direction: column; gap: 0.2rem; }
     .setting .counts { white-space: normal; }
+}
+
+/* =========================================================
+   Paradox opener — two panels bridged by a "yet"
+   ========================================================= */
+
+.paradox-section {
+    margin-top: 3rem;
+}
+
+.paradox-grid {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    align-items: stretch;
+    gap: 1rem;
+    margin: 1.25rem 0 1rem;
+}
+
+.paradox-panel {
+    border: 1px solid var(--rule);
+    background: #fff;
+    padding: 1.4rem 1.5rem;
+    border-radius: 3px;
+}
+
+.paradox-tension {
+    border-left: 3px solid #b5b2aa;
+}
+
+.paradox-resolution {
+    border-left: 3px solid var(--accent);
+}
+
+.paradox-tag {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+}
+
+.paradox-resolution .paradox-tag {
+    color: var(--accent);
+}
+
+.paradox-line {
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    line-height: 1.45;
+    color: var(--text);
+    margin: 0 0 0.55rem;
+}
+
+.paradox-sub {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.paradox-bridge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paradox-bridge svg {
+    width: 30px;
+    height: 140px;
+}
+
+.paradox-hook {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--accent);
+    text-align: center;
+    margin: 0.5rem 0 0;
+}
+
+@media (max-width: 680px) {
+    .paradox-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    .paradox-bridge {
+        transform: rotate(90deg);
+        height: 30px;
+    }
+    .paradox-bridge svg { height: 30px; width: 100px; }
+}
+
+/* =========================================================
+   Robustness — four-card summary strip
+   ========================================================= */
+
+.robustness-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+    margin: 1.25rem 0 1.75rem;
+}
+
+.robust-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    padding: 1.1rem 1.2rem;
+    border-radius: 3px;
+}
+
+.robust-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.45rem;
+}
+
+.robust-stat {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 0.55rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.robust-note {
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+@media (max-width: 680px) {
+    .robustness-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   Scenario tabs — switch between population-dynamics panels
+   ========================================================= */
+
+.scenario-tabs {
+    margin: 1.5rem 0 2rem;
+}
+
+.tab-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 1.1rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    padding: 0.55rem 0.95rem;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    margin-bottom: -1px;
+}
+
+.tab-btn:hover {
+    color: var(--text);
+}
+
+.tab-btn.is-active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    font-weight: 600;
+}
+
+.tab-panel {
+    display: none;
+    margin: 0;
+}
+
+.tab-panel.is-active {
+    display: block;
+}
+
+.tab-panel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tab-panel figcaption {
+    margin-top: 0.7rem;
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+@media (max-width: 680px) {
+    .tab-btn {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.82rem;
+    }
 }
